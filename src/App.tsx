@@ -1,6 +1,6 @@
 // import React from 'react';
 // import rockGlass from './images/rockGlass.svg';
-// import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { Routes, Route } from 'react-router-dom';
 import './App.css';
 import Login from './pages/Login';
