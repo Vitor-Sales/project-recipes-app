@@ -1,10 +1,16 @@
-function FavoriteRecipes() {
+import Header from '../../components/Header/HeaderNoSearch';
+import Footer from '../../components/Footer';
+import styles from './FavoriteRecipes.module.css';
+import BodyFavoriteRecipes from './BodyFavoriteRecipes';
+
+export default function FavoriteRecipes() {
   return (
-    <div>
-      <h1>Receitas Favoritas</h1>
-      {/* <RecipeList /> */}
+    <div className={ styles.layout }>
+      <Header />
+      <div className={ styles.body }>
+        <BodyFavoriteRecipes />
+      </div>
+      <Footer />
     </div>
   );
 }
-
-export default FavoriteRecipes;

@@ -1,0 +1,40 @@
+.bodyMeals {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.mealsDiplay {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.mealsCard {
+  align-items: center;
+  background-color: #f7f7f7;
+  border: 0.7px solid #6d6d6d;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 0 rgba(77, 77, 77, 0.444);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 10px;
+}
+
+.mealsImg {
+  border-radius: 9px 9px 0 0;
+  width: 160px;
+}
+
+.mealsName {
+  font-family: Epilogue , sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 12.3px;
+  margin: 5px 0;
+  text-align: left;
+
+}

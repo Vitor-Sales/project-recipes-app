@@ -1,0 +1,25 @@
+.layout {
+  display: flex;
+  flex-direction: column;
+  font-family: Epilogue , sans-serif;
+  height: 100vh;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.body {
+  padding-bottom: 70px;
+  padding-top: 70px;
+  width: 100%;
+}
+
+.pageMeals {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+  margin: 0;
+  width: 100%;
+}
+

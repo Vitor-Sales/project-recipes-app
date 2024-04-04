@@ -1,0 +1,115 @@
+.meals {
+  align-items: center;
+  background-color: aliceblue;
+  color: #464646;
+  display: flex;
+  flex-direction: column;
+  font-family: Epilogue , sans-serif;
+  height: 100vh;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.logoApp {
+  border: none;
+  border-radius: 5px;
+  box-shadow: #464646 0 0 10px;
+  margin-top: 10px;
+  max-height: 80vh;
+  padding: 0;
+}
+
+.logoApp:hover {
+  transform: scale(1.1);
+  transition: 0.3s;
+}
+
+.NameApp {
+  color: #78197f;
+  font-family: Epilogue , sans-serif;
+  font-size: 1.5em;
+  font-weight: 900;
+  margin-top: 5px;
+}
+
+.text {
+  color: aliceblue;
+  font-family: Epilogue , sans-serif;
+  font-size: 1em;
+  text-align: center;
+}
+
+.headerInitial {
+  align-items: center;
+  background: linear-gradient(#031b0e 3.82%, #287625 64.29%, #1eb720 127.34%);
+  color: #464646;
+  display: flex;
+  flex-direction: column;
+  font-family: sans-serif;
+  justify-content: space-around;
+  padding: 20px 5px;
+  width: 100%;
+}
+
+.LogoTrybe {
+  margin: 30px;
+  width: 150px;
+}
+
+.bodyInitial {
+  align-items: center;
+  background-size: 100% 1.2rem;
+  display: flex;
+  flex-direction: column;
+  font-family: Epilogue , sans-serif;
+  justify-content: center;
+  padding: 20% 0;
+  width: 100%;
+}
+
+.Grupo {
+  align-items: center;
+  display: flex;
+  flex-flow: wrap;
+  flex-direction: row;
+  justify-content: center;
+  margin: 35px;
+  width: 100%;
+}
+
+.member {
+  align-items: center;
+  background-color: #031b0e67;
+  border: none;
+  border-radius: 10px;
+  box-shadow: #2b2b2b 0 0 5px;
+  display: flex;
+  flex-direction: column;
+  height: 80px;
+  justify-content: center;
+  margin: 30px 10px;
+  padding: 5px;
+  width: 100px;
+}
+
+.member:hover {
+  transform: scale(1.1);
+  transition: 0.3s;
+}
+
+.memberName {
+  color: aliceblue;
+  font-family: Epilogue , sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  margin: 0;
+}
+
+.foto {
+  border-radius: 50%;
+  height: 70px;
+}
+
+.linkedinTile {
+  height: 20px;
+}
