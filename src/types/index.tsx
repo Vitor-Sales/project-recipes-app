@@ -18,3 +18,15 @@ export type LoginType = {
   addEmail: (newEmail: string) => void;
   removeEmail: () => void;
 };
+
+export interface Meal {
+  idMeal: string;
+  strMeal: string;
+  strMealThumb: string;
+}
+
+export interface Drink {
+  idDrink: string;
+  strDrink: string;
+  strDrinkThumb: string;
+}
