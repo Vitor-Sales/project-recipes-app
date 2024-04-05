@@ -1,4 +1,4 @@
-import HeaderMeals from './Header';
+import HeaderMeals from './HeaderMeals';
 import BodyMeals from './BodyMeals';
 import styles from './Meals.module.css';
 import Header from '../../components/Header';

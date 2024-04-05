@@ -1,10 +1,13 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 import App from '../App';
+import renderWithRouter from './renderWithRouter';
 
 test('Farewell, front-end', () => {
-  // Este arquivo pode ser modificado ou deletado sem problemas
-  render(<App />);
-  const linkElement = screen.getByText(/TRYBE/i);
-  expect(linkElement).toBeInTheDocument();
+  it('Verifica se app redenriza na tela de login', () => {
+    renderWithRouter(<App />);
+    expect(screen.getByTestId('email-input')).toBeInTheDocument();
+    expect(screen.getByTestId('password-input')).toBeInTheDocument();
+    expect(screen.getByTestId('login-submit-btn')).toBeInTheDocument();
+  });
 });
