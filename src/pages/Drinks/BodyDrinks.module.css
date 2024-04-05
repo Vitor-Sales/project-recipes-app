@@ -18,15 +18,26 @@
   border: 0.7px solid #6d6d6d;
   border-radius: 10px;
   box-shadow: 0 0 10px 0 rgba(77, 77, 77, 0.444);
+  cursor: pointer;
   display: flex;
   flex-direction: column;
   justify-content: center;
   margin: 10px;
 }
 
+.drinkCard:hover {
+  transform: scale(1.02);
+  transition: 0.3s;
+}
+
+.drinkCard:active {
+  transform: scale(0.9);
+  transition: 0.3s;
+}
+
 .drinkImg {
   border-radius: 9px 9px 0 0;
-  width: 160px;
+  width: 140px;
 }
 
 .drinkName {
