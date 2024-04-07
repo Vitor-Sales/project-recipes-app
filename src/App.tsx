@@ -8,6 +8,7 @@ import Drinks from './pages/Drinks';
 import Profile from './pages/Profile';
 import DoneRecipes from './pages/DoneRecipes';
 import FavoriteRecipes from './pages/FavoriteRecipes';
+import Recipes from './pages/Recipes'; // Importação do componente Recipes
 
 import RecipeDetails from './pages/RecipeDetails';
 import RecipeInProgress from './pages/RecipeInProgress';
@@ -23,7 +24,7 @@ function App() {
         <Route path="/profile" element={ <Profile /> } />
         <Route path="/done-recipes" element={ <DoneRecipes /> } />
         <Route path="/favorite-recipes" element={ <FavoriteRecipes /> } />
-
+        <Route path="/recipes" element={ <Recipes /> } />
         <Route path="/meals:id" element={ <RecipeDetails /> } />
         <Route path="/drinks:id" element={ <RecipeDetails /> } />
         <Route path="/meals/:id/in-progress" element={ <RecipeInProgress /> } />

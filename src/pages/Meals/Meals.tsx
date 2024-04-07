@@ -1,7 +1,6 @@
-// Meals/index.tsx
 import React, { useState, useEffect } from 'react';
 import { Meal } from '../../types';
-import BodyMeals from './BodyMeals'; // Asegure-se que o caminho do import está correto
+import BodyMeals from './BodyMeals';
 
 function Meals() {
   const [meals, setMeals] = useState<Meal[]>([]);
@@ -10,13 +9,12 @@ function Meals() {
     fetch('https://www.themealdb.com/api/json/v1/1/search.php?s=')
       .then((response) => response.json())
       .then((data) => {
-        if (data.meals) { // Certifica-se de que meals não é null/undefined
+        if (data.meals) {
           setMeals(data.meals.slice(0, 12));
         }
       });
   }, []);
 
-  // Passa meals como prop para BodyMeals
   return <BodyMeals meals={ meals } />;
 }
 
