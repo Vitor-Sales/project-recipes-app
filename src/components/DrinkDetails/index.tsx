@@ -1,29 +1,31 @@
 import { useContext } from 'react';
 import RecipeContext from '../../context/RecipeContext';
-import style from './MealDetails.module.css';
+import style from './DrinkDetails.module.css';
 
-function MealDetails({ detail, ingredients }) {
-  const { drinks } = useContext(RecipeContext);
-  console.log(`drinks: ${drinks && drinks.slice(0, 6)}`);
+function DrinkDetails({ detail, ingredients }) {
+  const { meals } = useContext(RecipeContext);
 
   return (
     <div>
       <div>
         <h1
-          // className={ style.title }
+            // className={ style.title }
           data-testid="recipe-title"
         >
-          {detail.strMeal}
+          {detail.strDrink}
         </h1>
         <img
           data-testid="recipe-photo"
+            // className={ style.img }
+          src={ detail.strDrinkThumb }
+          alt={ detail.strDrink }
           className={ style.img }
-          src={ detail.strMealThumb }
-          alt={ detail.strMeal }
         />
-        <p data-testid="recipe-category">{detail.strCategory}</p>
+        <p data-testid="recipe-category">
+          {detail.strAlcoholic === 'Alcoholic'
+            ? 'Alcoholic' : 'Non-Alcoholic'}
+        </p>
       </div>
-      <h2>Ingredients</h2>
       <ol>
         {ingredients.map((ing, index) => {
           return (
@@ -36,44 +38,39 @@ function MealDetails({ detail, ingredients }) {
           );
         })}
       </ol>
-      <h2>Instructions</h2>
       <p
         className={ style.instructions }
         data-testid="instructions"
       >
         {detail.strInstructions}
       </p>
-      <h2>Video</h2>
       {detail.strYoutube && (
         <iframe
           width="300"
           height="200"
           data-testid="video"
-          title={ detail.strMeal }
+          title={ detail.strDrink }
           src={ detail.strYoutube.replace('watch?v=', 'embed/') }
           frameBorder="0"
           allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture"
           allowFullScreen
         />
       )}
-      <div>
-        <h2>Recommended</h2>
-        <div className={ style.recommendedScroll }>
-          {drinks && drinks.slice(0, 6).map((recommended, index) => (
-            <div
-              key={ recommended.strDrink }
-              data-testid={ `${index}-recommendation-card` }
-              className={ style.recommendedCard }
+      <div className={ style.recommendedScroll }>
+        {meals && meals.splice(0, 6).map((recommendation, index) => (
+          <div
+            key={ recommendation.strMeal }
+            className={ style.recommendedCard }
+            data-testid={ `${index}-recommendation-card` }
+          >
+            <img src={ recommendation.strMealThumb } alt={ recommendation.strMeal } />
+            <p
+              data-testid={ `${index}-recommendation-title` }
             >
-              <img src={ recommended.strDrinkThumb } alt={ recommended.strDrink } />
-              <p
-                data-testid={ `${index}-recommendation-title` }
-              >
-                {recommended.strDrink}
-              </p>
-            </div>
-          ))}
-        </div>
+              {recommendation.strMeal}
+            </p>
+          </div>
+        ))}
       </div>
       <button
         className={ style.startBtn }
@@ -85,4 +82,4 @@ function MealDetails({ detail, ingredients }) {
   );
 }
 
-export default MealDetails;
+export default DrinkDetails;

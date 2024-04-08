@@ -22,8 +22,6 @@ function RecipeProvider({ children }: RecipeProviderProps) {
         setDrinks(dataDrinks.drinks);
       };
       fetchAPIs();
-      console.log(meals);
-      console.log(drinks);
     } catch (error) {
       console.log(error);
     }
@@ -40,6 +38,8 @@ function RecipeProvider({ children }: RecipeProviderProps) {
   const values = {
     searchVisible,
     searchToggle,
+    drinks,
+    meals,
   };
 
   return (
