@@ -5,6 +5,20 @@ import style from './DrinkDetails.module.css';
 function DrinkDetails({ detail, ingredients }) {
   const { meals } = useContext(RecipeContext);
 
+  const doneRecipe = [{
+    id: detail.idDrink,
+    type: 'drink',
+    nationality: '',
+    category: detail.strCategory,
+    alcoholicOrNot: detail.strAlcoholic,
+    name: detail.strDrink,
+    image: detail.strDrinkThumb,
+    doneDate: 'doneDate',
+    tags: detail.strTags ? detail.strTags.split(',') : [],
+  }];
+
+  localStorage.setItem('doneRecipes', JSON.stringify(doneRecipe));
+
   return (
     <div>
       <div>
@@ -57,7 +71,7 @@ function DrinkDetails({ detail, ingredients }) {
         />
       )}
       <div className={ style.recommendedScroll }>
-        {meals && meals.splice(0, 6).map((recommendation, index) => (
+        {meals && meals.slice(0, 6).map((recommendation, index) => (
           <div
             key={ recommendation.strMeal }
             className={ style.recommendedCard }
@@ -72,12 +86,16 @@ function DrinkDetails({ detail, ingredients }) {
           </div>
         ))}
       </div>
-      <button
-        className={ style.startBtn }
-        data-testid="start-recipe-btn"
-      >
-        Start Recipe
-      </button>
+      {(!JSON.parse(localStorage.getItem('doneRecipes'))
+      || JSON.parse(localStorage.getItem('doneRecipes'))
+        .every((recipe) => recipe.id !== detail.idDrink)) && (
+          <button
+            className={ style.startBtn }
+            data-testid="start-recipe-btn"
+          >
+            Start Recipe
+          </button>
+      )}
     </div>
   );
 }
