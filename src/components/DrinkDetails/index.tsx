@@ -9,20 +9,6 @@ function DrinkDetails({ detail, ingredients }) {
   const isItDone = JSON.parse(localStorage.getItem('doneRecipes') || '[]')
     .some((recipe) => recipe.id === detail.idDrink);
 
-  // const doneRecipe = [{
-  //   id: detail.idDrink,
-  //   type: 'drink',
-  //   nationality: '',
-  //   category: detail.strCategory,
-  //   alcoholicOrNot: detail.strAlcoholic,
-  //   name: detail.strDrink,
-  //   image: detail.strDrinkThumb,
-  //   doneDate: 'doneDate',
-  //   tags: detail.strTags ? detail.strTags.split(',') : [],
-  // }];
-
-  // localStorage.setItem('doneRecipes', JSON.stringify(doneRecipe));
-
   return (
     <div>
       <div>

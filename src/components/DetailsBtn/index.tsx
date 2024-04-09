@@ -1,17 +1,31 @@
 import { useEffect, useState } from 'react';
+import { useNavigate, useLocation, useParams } from 'react-router-dom';
 import style from './DetailBtn.module.css';
 
-function DetailsBtn({ id }: { id: string }) {
+function DetailsBtn({ idRecipe }: { idRecipe: string }) {
+  const navigate = useNavigate();
+  const { id } = useParams();
+  const { pathname } = useLocation();
+
   const inProgress = JSON.parse(localStorage.getItem('inProgressRecipes') || '{}');
   const mealsProgress = Object.keys(inProgress.meals || {}) || [];
   const drinksProgress = Object.keys(inProgress.drinks || {}) || [];
-  const verification = mealsProgress.some((idProgress) => idProgress === id)
-     || drinksProgress.some((idProgress) => idProgress === id);
+  const verification = mealsProgress.some((idProgress) => idProgress === idRecipe)
+     || drinksProgress.some((idProgress) => idProgress === idRecipe);
+
+  const handleClick = () => {
+    if (pathname.includes('drinks')) {
+      navigate(`/drinks/${id}/in-progress`);
+    } else {
+      navigate(`/meals/${id}/in-progress`);
+    }
+  };
 
   return (
     <button
       className={ style.startBtn }
       data-testid="start-recipe-btn"
+      onClick={ handleClick }
     >
       {verification
         ? 'Continue Recipe' : 'Start Recipe'}
