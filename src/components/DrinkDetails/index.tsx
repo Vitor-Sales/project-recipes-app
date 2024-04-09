@@ -1,23 +1,27 @@
 import { useContext } from 'react';
 import RecipeContext from '../../context/RecipeContext';
 import style from './DrinkDetails.module.css';
+import DetailsBtn from '../DetailsBtn';
 
 function DrinkDetails({ detail, ingredients }) {
   const { meals } = useContext(RecipeContext);
 
-  const doneRecipe = [{
-    id: detail.idDrink,
-    type: 'drink',
-    nationality: '',
-    category: detail.strCategory,
-    alcoholicOrNot: detail.strAlcoholic,
-    name: detail.strDrink,
-    image: detail.strDrinkThumb,
-    doneDate: 'doneDate',
-    tags: detail.strTags ? detail.strTags.split(',') : [],
-  }];
+  const isItDone = JSON.parse(localStorage.getItem('doneRecipes') || '[]')
+    .some((recipe) => recipe.id === detail.idDrink);
 
-  localStorage.setItem('doneRecipes', JSON.stringify(doneRecipe));
+  // const doneRecipe = [{
+  //   id: detail.idDrink,
+  //   type: 'drink',
+  //   nationality: '',
+  //   category: detail.strCategory,
+  //   alcoholicOrNot: detail.strAlcoholic,
+  //   name: detail.strDrink,
+  //   image: detail.strDrinkThumb,
+  //   doneDate: 'doneDate',
+  //   tags: detail.strTags ? detail.strTags.split(',') : [],
+  // }];
+
+  // localStorage.setItem('doneRecipes', JSON.stringify(doneRecipe));
 
   return (
     <div>
@@ -86,16 +90,7 @@ function DrinkDetails({ detail, ingredients }) {
           </div>
         ))}
       </div>
-      {(!JSON.parse(localStorage.getItem('doneRecipes'))
-      || JSON.parse(localStorage.getItem('doneRecipes'))
-        .every((recipe) => recipe.id !== detail.idDrink)) && (
-          <button
-            className={ style.startBtn }
-            data-testid="start-recipe-btn"
-          >
-            Start Recipe
-          </button>
-      )}
+      {!isItDone && <DetailsBtn id={ detail.idDrink } />}
     </div>
   );
 }

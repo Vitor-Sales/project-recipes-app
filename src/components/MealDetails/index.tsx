@@ -6,33 +6,8 @@ import DetailsBtn from '../DetailsBtn';
 function MealDetails({ detail, ingredients }) {
   const { drinks } = useContext(RecipeContext);
 
-  const isItDone = JSON.parse(localStorage.getItem('doneRecipes'))
-  && JSON.parse(localStorage.getItem('doneRecipes'))
+  const isItDone = JSON.parse(localStorage.getItem('doneRecipes') || '[]')
     .some((recipe) => recipe.id === detail.idMeal);
-
-  const doneRecipe = [{
-    id: detail.idMeal,
-    type: 'meal',
-    nationality: detail.strArea,
-    category: detail.strCategory,
-    alcoholicOrNot: '',
-    name: detail.strMeal,
-    image: detail.strMealThumb,
-    doneDate: 'doneDate',
-    tags: detail.strTags ? detail.strTags.split(',') : [],
-  }];
-
-  const inProgressRecipe = {
-    drinks: {
-      11007: ['Tequilla', 'Triple sec', 'Lime juice', 'Salt'],
-    },
-    meals: {
-      52772: ['soy sauce', 'water', 'brown sugar', 'ground ginger', 'minced garlic', 'chicken breasts', 'stir-fry vegetables', 'brown rice'],
-    },
-  };
-
-  localStorage.setItem('inProgressRecipes', JSON.stringify(inProgressRecipe));
-  localStorage.setItem('doneRecipes', JSON.stringify(doneRecipe));
 
   return (
     <div>
@@ -102,16 +77,6 @@ function MealDetails({ detail, ingredients }) {
           ))}
         </div>
       </div>
-      {/* {(!JSON.parse(localStorage.getItem('doneRecipes'))
-      || JSON.parse(localStorage.getItem('doneRecipes'))
-        .every((recipe) => recipe.id !== detail.idMeal)) && (
-          <button
-            className={ style.startBtn }
-            data-testid="start-recipe-btn"
-          >
-            Start Recipe
-          </button>
-      )} */}
       {!isItDone && <DetailsBtn id={ detail.idMeal } />}
     </div>
   );
