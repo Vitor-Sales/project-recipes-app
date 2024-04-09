@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Drink, Category } from '../../types'; // Importe a interface Category junto com Drink
+import { Drink, Category } from '../../types';
 import BodyDrinks from './BodyDrinks';
 import HeaderDrinks from './HeaderDrinks';
 import styles from './Drinks.module.css';
@@ -8,35 +8,45 @@ import Footer from '../../components/Footer';
 
 export default function Drinks() {
   const [drinks, setDrinks] = useState<Drink[]>([]);
-  const [categories, setCategories] = useState<string[]>([]);
+  const [categories, setCategories] = useState<Category[]>([]);
+  const [selectedCategory, setSelectedCategory] = useState<string>('All');
 
   useEffect(() => {
-    const fetchDrinks = async () => {
-      try {
-        const response = await fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=');
-        const data = await response.json();
-        setDrinks(data.drinks.slice(0, 12));
-      } catch (error) {
-        console.error('Error fetching drinks:', error);
-      }
-    };
-
     const fetchCategories = async () => {
       try {
         const response = await fetch('https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list');
         const data = await response.json();
-        // Use a interface Category ao mapear as categorias
-        const fetchedCategories = data.drinks.map((cat:
-        Category) => cat.strCategory).slice(0, 5);
-        setCategories(fetchedCategories);
+        setCategories([{ strCategory: 'All' }, ...data.drinks.slice(0, 5)]);
       } catch (error) {
         console.error('Error fetching drink categories:', error);
       }
     };
 
-    fetchDrinks();
     fetchCategories();
   }, []);
+
+  useEffect(() => {
+    const fetchDrinks = async () => {
+      let url = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=';
+      if (selectedCategory && selectedCategory !== 'All') {
+        url = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=${selectedCategory}`;
+      }
+
+      try {
+        const response = await fetch(url);
+        const data = await response.json();
+        setDrinks(data.drinks.slice(0, 12));
+      } catch (error) {
+        console.error(`Error fetching drinks for category ${selectedCategory}:`, error);
+      }
+    };
+
+    fetchDrinks();
+  }, [selectedCategory]);
+
+  const handleCategoryClick = (category: string) => {
+    setSelectedCategory((prev) => (prev === category ? 'All' : category));
+  };
 
   return (
     <div className={ styles.layout }>
@@ -47,11 +57,13 @@ export default function Drinks() {
           <div className={ styles.categoryButtons }>
             {categories.map((category) => (
               <button
-                key={ category }
-                className="btn btn-primary"
-                data-testid={ `${category}-category-filter` }
+                key={ category.strCategory }
+                className={ `btn btn-primary
+                 ${selectedCategory === category.strCategory ? 'active' : ''}` }
+                data-testid={ `${category.strCategory}-category-filter` }
+                onClick={ () => handleCategoryClick(category.strCategory) }
               >
-                {category}
+                {category.strCategory}
               </button>
             ))}
           </div>

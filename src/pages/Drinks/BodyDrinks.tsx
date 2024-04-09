@@ -1,11 +1,15 @@
 import React from 'react';
-import { Drink } from '../../types';
+import { useNavigate } from 'react-router-dom';
+import { BodyDrinksProps } from '../../types';
 import styles from './BodyDrinks.module.css';
 
-interface BodyDrinksProps {
-  drinks: Drink[];
-}
 function BodyDrinks({ drinks }: BodyDrinksProps) {
+  const navigate = useNavigate();
+
+  const handleCardClick = (id: string) => {
+    navigate(`/drinks/${id}`);
+  };
+
   return (
     <div className={ styles.bodyDrinks }>
       <div className={ styles.drinksDisplay }>
@@ -14,6 +18,10 @@ function BodyDrinks({ drinks }: BodyDrinksProps) {
             key={ drink.idDrink }
             className={ styles.drinkCard }
             data-testid={ `${index}-recipe-card` }
+            onClick={ () => handleCardClick(drink.idDrink) }
+            role="button"
+            tabIndex={ 0 }
+            onKeyPress={ () => handleCardClick(drink.idDrink) }
           >
             <img
               src={ drink.strDrinkThumb }

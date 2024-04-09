@@ -33,3 +33,11 @@ export interface Drink {
 export interface Category {
   strCategory: string;
 }
+
+export interface BodyMealsProps {
+  meals: Meal[] | undefined;
+}
+
+export interface BodyDrinksProps {
+  drinks: Drink[];
+}
