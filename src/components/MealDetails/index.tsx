@@ -2,6 +2,7 @@ import { useContext } from 'react';
 import RecipeContext from '../../context/RecipeContext';
 import style from './MealDetails.module.css';
 import DetailsBtn from '../DetailsBtn';
+import FavShareBtns from '../FavShareBtns';
 
 function MealDetails({ detail, ingredients }) {
   const { drinks } = useContext(RecipeContext);
@@ -12,6 +13,8 @@ function MealDetails({ detail, ingredients }) {
   return (
     <div>
       <div>
+        <p data-testid="recipe-category">{detail.strCategory}</p>
+        <FavShareBtns />
         <h1
           data-testid="recipe-title"
         >
@@ -23,7 +26,6 @@ function MealDetails({ detail, ingredients }) {
           src={ detail.strMealThumb }
           alt={ detail.strMeal }
         />
-        <p data-testid="recipe-category">{detail.strCategory}</p>
       </div>
       <h2>Ingredients</h2>
       <ol>
@@ -77,7 +79,7 @@ function MealDetails({ detail, ingredients }) {
           ))}
         </div>
       </div>
-      {!isItDone && <DetailsBtn id={ detail.idMeal } />}
+      {!isItDone && <DetailsBtn idRecipe={ detail.idMeal } />}
     </div>
   );
 }

@@ -2,6 +2,7 @@ import { useContext } from 'react';
 import RecipeContext from '../../context/RecipeContext';
 import style from './DrinkDetails.module.css';
 import DetailsBtn from '../DetailsBtn';
+import FavShareBtns from '../FavShareBtns';
 
 function DrinkDetails({ detail, ingredients }) {
   const { meals } = useContext(RecipeContext);
@@ -11,6 +12,11 @@ function DrinkDetails({ detail, ingredients }) {
 
   return (
     <div>
+      <p data-testid="recipe-category">
+        {detail.strAlcoholic === 'Alcoholic'
+          ? 'Alcoholic' : 'Non-Alcoholic'}
+      </p>
+      <FavShareBtns />
       <div>
         <h1
             // className={ style.title }
@@ -25,10 +31,6 @@ function DrinkDetails({ detail, ingredients }) {
           alt={ detail.strDrink }
           className={ style.img }
         />
-        <p data-testid="recipe-category">
-          {detail.strAlcoholic === 'Alcoholic'
-            ? 'Alcoholic' : 'Non-Alcoholic'}
-        </p>
       </div>
       <ol>
         {ingredients.map((ing, index) => {
@@ -76,7 +78,7 @@ function DrinkDetails({ detail, ingredients }) {
           </div>
         ))}
       </div>
-      {!isItDone && <DetailsBtn id={ detail.idDrink } />}
+      {!isItDone && <DetailsBtn idRecipe={ detail.idDrink } />}
     </div>
   );
 }
