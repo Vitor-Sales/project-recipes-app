@@ -1,34 +1,20 @@
 import React, { useState, useEffect } from 'react';
-import { Drink, Category } from '../../types';
+import { Drink } from '../../types';
 import BodyDrinks from './BodyDrinks';
 import HeaderDrinks from './HeaderDrinks';
+import CategoryDrinks from './CategoryDrinks';
 import styles from './Drinks.module.css';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 
 export default function Drinks() {
   const [drinks, setDrinks] = useState<Drink[]>([]);
-  const [categories, setCategories] = useState<Category[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
-
-  useEffect(() => {
-    const fetchCategories = async () => {
-      try {
-        const response = await fetch('https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list');
-        const data = await response.json();
-        setCategories([{ strCategory: 'All' }, ...data.drinks.slice(0, 5)]);
-      } catch (error) {
-        console.error('Error fetching drink categories:', error);
-      }
-    };
-
-    fetchCategories();
-  }, []);
 
   useEffect(() => {
     const fetchDrinks = async () => {
       let url = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=';
-      if (selectedCategory && selectedCategory !== 'All') {
+      if (selectedCategory !== 'All') {
         url = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=${selectedCategory}`;
       }
 
@@ -43,9 +29,10 @@ export default function Drinks() {
 
     fetchDrinks();
   }, [selectedCategory]);
-
-  const handleCategoryClick = (category: string) => {
-    setSelectedCategory((prev) => (prev === category ? 'All' : category));
+  const handleCategorySelect = (category: string) => {
+    setSelectedCategory((prevCategory) => {
+      return prevCategory === category ? 'All' : category;
+    });
   };
 
   return (
@@ -54,19 +41,7 @@ export default function Drinks() {
       <div className={ styles.body }>
         <div className={ styles.pageDrinks }>
           <HeaderDrinks />
-          <div className={ styles.categoryButtons }>
-            {categories.map((category) => (
-              <button
-                key={ category.strCategory }
-                className={ `btn btn-primary
-                 ${selectedCategory === category.strCategory ? 'active' : ''}` }
-                data-testid={ `${category.strCategory}-category-filter` }
-                onClick={ () => handleCategoryClick(category.strCategory) }
-              >
-                {category.strCategory}
-              </button>
-            ))}
-          </div>
+          <CategoryDrinks onCategorySelect={ handleCategorySelect } />
           <BodyDrinks drinks={ drinks } />
         </div>
       </div>
