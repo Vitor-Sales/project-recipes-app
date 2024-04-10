@@ -3,18 +3,28 @@ import RecipeContext from '../../context/RecipeContext';
 import style from './MealDetails.module.css';
 import DetailsBtn from '../DetailsBtn';
 import FavShareBtns from '../FavShareBtns';
+import { MealType, RecipeType } from '../../types';
 
-function MealDetails({ detail, ingredients }) {
+function MealDetails({ detail, ingredients }
+: { detail: MealType, ingredients: [string, unknown][] }) {
   const { drinks } = useContext(RecipeContext);
 
   const isItDone = JSON.parse(localStorage.getItem('doneRecipes') || '[]')
-    .some((recipe) => recipe.id === detail.idMeal);
+    .some((recipe: RecipeType) => recipe.id === detail.idMeal);
 
   return (
     <div>
       <div>
         <p data-testid="recipe-category">{detail.strCategory}</p>
-        <FavShareBtns />
+        <FavShareBtns
+          id={ detail.idMeal }
+          type="meal"
+          nationality={ detail.strArea }
+          category={ detail.strCategory }
+          alcoholicOrNot=""
+          name={ detail.strMeal }
+          image={ detail.strMealThumb }
+        />
         <h1
           data-testid="recipe-title"
         >
@@ -63,7 +73,7 @@ function MealDetails({ detail, ingredients }) {
       <div>
         <h2>Recommended</h2>
         <div className={ style.recommendedScroll }>
-          {drinks && drinks.slice(0, 6).map((recommended, index) => (
+          {drinks && drinks.slice(0, 6).map((recommended, index: any) => (
             <div
               key={ recommended.strDrink }
               data-testid={ `${index}-recommendation-card` }

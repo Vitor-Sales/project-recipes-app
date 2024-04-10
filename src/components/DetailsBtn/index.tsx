@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import { useNavigate, useLocation, useParams } from 'react-router-dom';
 import style from './DetailBtn.module.css';
 

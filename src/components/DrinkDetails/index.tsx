@@ -3,12 +3,14 @@ import RecipeContext from '../../context/RecipeContext';
 import style from './DrinkDetails.module.css';
 import DetailsBtn from '../DetailsBtn';
 import FavShareBtns from '../FavShareBtns';
+import { DrinkType, RecipeType } from '../../types';
 
-function DrinkDetails({ detail, ingredients }) {
+function DrinkDetails({ detail, ingredients }
+: { detail: DrinkType, ingredients: [string, unknown][] }) {
   const { meals } = useContext(RecipeContext);
 
   const isItDone = JSON.parse(localStorage.getItem('doneRecipes') || '[]')
-    .some((recipe) => recipe.id === detail.idDrink);
+    .some((recipe: RecipeType) => recipe.id === detail.idDrink);
 
   return (
     <div>
@@ -16,7 +18,15 @@ function DrinkDetails({ detail, ingredients }) {
         {detail.strAlcoholic === 'Alcoholic'
           ? 'Alcoholic' : 'Non-Alcoholic'}
       </p>
-      <FavShareBtns />
+      <FavShareBtns
+        id={ detail.idDrink }
+        type="drink"
+        nationality=""
+        category={ detail.strCategory }
+        alcoholicOrNot={ detail.strAlcoholic }
+        name={ detail.strDrink }
+        image={ detail.strDrinkThumb }
+      />
       <div>
         <h1
             // className={ style.title }
@@ -33,7 +43,7 @@ function DrinkDetails({ detail, ingredients }) {
         />
       </div>
       <ol>
-        {ingredients.map((ing, index) => {
+        {ingredients.map((ing, index: any) => {
           return (
             <li
               key={ index }
@@ -50,18 +60,18 @@ function DrinkDetails({ detail, ingredients }) {
       >
         {detail.strInstructions}
       </p>
-      {detail.strYoutube && (
-        <iframe
-          width="300"
-          height="200"
-          data-testid="video"
-          title={ detail.strDrink }
-          src={ detail.strYoutube.replace('watch?v=', 'embed/') }
-          frameBorder="0"
-          allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture"
-          allowFullScreen
-        />
-      )}
+      {/* {detail.strYoutube && (
+        // <iframe
+        //   width="300"
+        //   height="200"
+        //   data-testid="video"
+        //   title={ detail.strDrink }
+        //   src={ detail.strYoutube.replace('watch?v=', 'embed/') }
+        //   frameBorder="0"
+        //   allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture"
+        //   allowFullScreen
+        // />
+      )} */}
       <div className={ style.recommendedScroll }>
         {meals && meals.slice(0, 6).map((recommendation, index) => (
           <div

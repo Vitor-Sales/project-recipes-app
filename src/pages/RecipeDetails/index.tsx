@@ -8,8 +8,6 @@ function RecipeDetails() {
   const { pathname } = useLocation();
   const [detail, setDetail] = useState({});
   const [ingredients, setIngredients] = useState<[string, unknown][]>([]);
-  // const idMeal = '52977';
-  // const idDrink = '11007';
   const URLmeal = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`;
   const URLdrink = `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`;
 
@@ -31,9 +29,9 @@ function RecipeDetails() {
             .filter((e) => e[0].includes('strIngredient'))
             .filter((e) => e[1] !== '' && e[1] !== null));
         }
+        console.log(ingredients);
       };
       fetchDetails();
-      console.log(detail);
     } catch (error) {
       console.log(error);
     }

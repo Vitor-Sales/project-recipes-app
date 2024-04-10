@@ -1,23 +1,63 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import shareIcon from '../../images/shareIcon.svg';
 import blackheartIcon from '../../images/blackHeartIcon.svg';
 import whiteHeartIcon from '../../images/whiteHeartIcon.svg';
 import style from './FavShareBtns.module.css';
 
-function FavShareBtns() {
-  const [isFavorite, setFavorite] = useState(true);
+type PropsType = {
+  id: string,
+  type: string,
+  nationality: string,
+  category: string,
+  alcoholicOrNot: string,
+  name: string,
+  image: string,
+};
+
+function FavShareBtns({
+  id, type, nationality, category, alcoholicOrNot, name, image,
+}: PropsType) {
+  const [isFavorite, setFavorite] = useState(false);
   const [isCopied, setIsCopied] = useState(false);
   const URL = window.location.href;
 
-  console.log(URL);
+  useEffect(() => {
+    const initialFavorite = () => {
+      const favoriteStorage = JSON.parse(localStorage.getItem('favoriteRecipes') || '[]');
+      const isInStorage = favoriteStorage.some((item: any) => {
+        return item.id === id;
+      });
+      if (isInStorage) {
+        setFavorite(true);
+      }
+    };
+    initialFavorite();
+  }, [id]);
 
-  const copyContent = async () => {
+  const handleCopy = async () => {
     try {
       await navigator.clipboard.writeText(URL);
-      console.log('Content copied to clipboard');
       setIsCopied(true);
     } catch (err) {
       console.error('Failed to copy: ', err);
+    }
+  };
+
+  const handleFavorite = (prevState: boolean) => {
+    const favoriteStorage = JSON.parse(localStorage.getItem('favoriteRecipes') || '[]');
+    const isInStorage = favoriteStorage
+      .some(({ id: itemId }: { id: string }) => itemId === id);
+    if (!isInStorage) {
+      favoriteStorage.push({
+        id, type, nationality, category, alcoholicOrNot, name, image,
+      });
+      localStorage.setItem('favoriteRecipes', JSON.stringify(favoriteStorage));
+      setFavorite(!prevState);
+    } else {
+      const newFavorites = favoriteStorage
+        .filter(({ id: itemId }: { id: string }) => itemId !== id);
+      localStorage.setItem('favoriteRecipes', JSON.stringify(newFavorites));
+      setFavorite(!prevState);
     }
   };
 
@@ -25,13 +65,18 @@ function FavShareBtns() {
     <div>
       <button
         className={ style.shareBtn }
-        onClick={ copyContent }
-        data-testid="share-btn"
+        onClick={ handleCopy }
       >
-        <img src={ shareIcon } alt="share" />
+        <img data-testid="share-btn" src={ shareIcon } alt="share" />
       </button>
-      <button data-testid="favorite-btn">
-        <img src={ isFavorite ? blackheartIcon : whiteHeartIcon } alt="" />
+      <button
+        onClick={ () => handleFavorite(isFavorite) }
+      >
+        <img
+          data-testid="favorite-btn"
+          src={ isFavorite ? blackheartIcon : whiteHeartIcon }
+          alt=""
+        />
       </button>
       {isCopied && <p>Link copied!</p>}
     </div>
