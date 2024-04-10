@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import shareIcon from '../../images/shareIcon.svg';
 import blackheartIcon from '../../images/blackHeartIcon.svg';
 import whiteHeartIcon from '../../images/whiteHeartIcon.svg';
-import style from './FavShareBtns.module.css';
 
 type PropsType = {
   id: string,
@@ -64,7 +63,6 @@ function FavShareBtns({
   return (
     <div>
       <button
-        className={ style.shareBtn }
         onClick={ handleCopy }
       >
         <img data-testid="share-btn" src={ shareIcon } alt="share" />
