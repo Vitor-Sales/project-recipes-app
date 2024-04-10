@@ -17,10 +17,13 @@
   align-items: center;
   display: flex;
   flex-direction: column;
-  height: 100%;
   justify-content: space-between;
   margin: 0;
   width: 100%;
+  /* Alterações para largura e altura */
+  height: 660px;
+  max-width: 1000px;
+  margin: auto;
 }
 
 .HeaderFavorite {
@@ -73,4 +76,11 @@
 .buttonsFavorite:active {
   transform: scale(0.9);
   transition: 0.3s;
+}
+
+.favoriteRecipeImage {
+  border-radius: 10px;
+  height: 200px;
+  margin: 10px;
+  width: 200px;
 }
