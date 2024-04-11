@@ -16,7 +16,9 @@ export default function Search() {
               type="radio"
               id="ingredient"
               name="filterSearch"
+              value="ingredient"
               data-testid="ingredient-search-radio"
+              className={ styles.radioForm }
             />
             <label htmlFor="ingredient">Ingredient</label>
           </div>
@@ -25,7 +27,9 @@ export default function Search() {
               type="radio"
               id="name"
               name="filterSearch"
+              value="name"
               data-testid="name-search-radio"
+              className={ styles.radioForm }
             />
             <label htmlFor="name" data-testid="name-search-radio">Name</label>
           </div>
@@ -34,7 +38,9 @@ export default function Search() {
               type="radio"
               id="firstLetter"
               name="filterSearch"
+              value="firstLetter"
               data-testid="first-letter-search-radio"
+              className={ styles.radioForm }
             />
             <label htmlFor="firstLetter">First letter</label>
           </div>
@@ -43,7 +49,7 @@ export default function Search() {
           data-testid="exec-search-btn"
           className={ styles.buttonSearch }
         >
-          SEARCH
+          Search
         </button>
       </div>
     </div>

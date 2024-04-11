@@ -12,17 +12,11 @@ export default function HeaderLayout() {
 
   return (
     <div className={ styles.header }>
-      <button
-        type="button"
-        onClick={ () => navigate('/Meals') } // Altere esta linha no fim do projeto
-        className={ styles.headerButton }
-      >
-        <img
-          src={ LogoHeader }
-          alt="Logo"
-          className={ styles.LogoHeader }
-        />
-      </button>
+      <img
+        src={ LogoHeader }
+        alt="Logo"
+        className={ styles.LogoHeader }
+      />
       <div className={ styles.search }>
         <button
           type="button"

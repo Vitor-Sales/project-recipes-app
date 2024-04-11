@@ -18,10 +18,21 @@
   border: 0.7px solid #6d6d6d;
   border-radius: 10px;
   box-shadow: 0 0 10px 0 rgba(77, 77, 77, 0.444);
+  cursor: pointer;
   display: flex;
   flex-direction: column;
   justify-content: center;
   margin: 10px;
+}
+
+.mealsCard:hover {
+  transform: scale(1.02);
+  transition: 0.3s;
+}
+
+.mealsCard:active {
+  transform: scale(0.9);
+  transition: 0.3s;
 }
 
 .mealsImg {
@@ -32,9 +43,9 @@
 .mealsName {
   font-family: Epilogue , sans-serif;
   font-size: 12px;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 12.3px;
-  margin: 5px 0;
+  margin: 7px 0;
   text-align: left;
 
 }
