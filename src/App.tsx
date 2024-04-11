@@ -1,43 +1,35 @@
-// import React from 'react';
-// import rockGlass from './images/rockGlass.svg';
+import React from 'react';
+import { Route, Routes } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Routes, Route } from 'react-router-dom';
-import './App.css';
+import CoverPage from './pages/CoverPage';
 import Login from './pages/Login';
+import Meals from './pages/Meals';
+import Drinks from './pages/Drinks';
 import Profile from './pages/Profile';
-import Recipes from './pages/Recipes';
-import Layout from './pages/Layout';
-import RecipeDetails from './pages/RecipeDetails';
 import DoneRecipes from './pages/DoneRecipes';
 import FavoriteRecipes from './pages/FavoriteRecipes';
+
+import RecipeDetails from './pages/RecipeDetails';
 import RecipeInProgress from './pages/RecipeInProgress';
 
 function App() {
   return (
-    // <div className="meals">
-    //   <span className="logo">TRYBE</span>
-    //   <object
-    //     className="rocksGlass"
-    //     type="image/svg+xml"
-    //     data={ rockGlass }
-    //   >
-    //     Glass
-    //   </object>
-    // </div>
-    <Routes>
-      <Route path="/" element={ <Login /> } />
-      <Route path="/" element={ <Layout /> }>
-        <Route path="/meals" element={ <Recipes /> } />
-        <Route path="/drinks" element={ <Recipes /> } />
+    <div className="device">
+      <Routes>
+        <Route path="/" element={ <Login /> } />
+        <Route path="/coverPage" element={ <CoverPage /> } />
+        <Route path="/meals" element={ <Meals /> } />
+        <Route path="/drinks" element={ <Drinks /> } />
         <Route path="/profile" element={ <Profile /> } />
         <Route path="/done-recipes" element={ <DoneRecipes /> } />
         <Route path="/favorite-recipes" element={ <FavoriteRecipes /> } />
-      </Route>
-      <Route path="/meals:id" element={ <RecipeDetails /> } />
-      <Route path="/drinks:id" element={ <RecipeDetails /> } />
-      <Route path="/meals/:id/in-progress" element={ <RecipeInProgress /> } />
-      <Route path="/drinks/:id/in-progress" element={ <RecipeInProgress /> } />
-    </Routes>
+
+        <Route path="/meals:id" element={ <RecipeDetails /> } />
+        <Route path="/drinks:id" element={ <RecipeDetails /> } />
+        <Route path="/meals/:id/in-progress" element={ <RecipeInProgress /> } />
+        <Route path="/drinks/:id/in-progress" element={ <RecipeInProgress /> } />
+      </Routes>
+    </div>
   );
 }
 

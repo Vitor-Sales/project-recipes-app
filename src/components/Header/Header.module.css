@@ -1,0 +1,56 @@
+.header {
+  align-items: center;
+  background: black;
+  background-color: #fcdc36;
+  border-bottom: 1px solid #e0e0e0;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  left: 0;
+  padding: 15px 20px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.profileIcon {
+  border: 1.5px solid black;
+  border-radius: 50%;
+  height: 30px;
+  padding: 3px;
+  width: 30px;
+}
+
+.searchIcon {
+  height: 30px;
+  margin-right: 15px;
+  padding: 3px;
+  width: 30px;
+}
+
+.profileIcon, .searchIcon {
+  filter: invert(13%)
+    sepia(67%)
+    saturate(4492%)
+    hue-rotate(261deg)
+    brightness(73%)
+    contrast(98%);
+}
+
+.headerButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  outline: none;
+}
+
+.headerButton:hover {
+  transform: scale(1.1);
+  transition: 0.3s;
+}
+
+.headerButton:active {
+  transform: scale(0.9);
+  transition: 0.3s;
+}

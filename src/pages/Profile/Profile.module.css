@@ -1,0 +1,83 @@
+.layout {
+  display: flex;
+  flex-direction: column;
+  font-family: Epilogue , sans-serif;
+  height: 100vh;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.body {
+  padding-bottom: 70px;
+  padding-top: 70px;
+  width: 100%;
+}
+
+.pageProfile {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+  margin: 0;
+  width: 100%;
+}
+
+.HeaderProfile {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  font-family: Epilogue , sans-serif;
+  justify-content: space-between;
+  padding: 10px;
+  width: 100%;
+}
+
+.icon {
+  height: 50px;
+  margin: 10px;
+}
+
+.titleProfile {
+  color: #41197f;
+  font-size: 1.5em;
+  font-weight: 900;
+  margin-top: 5px;
+  text-transform: uppercase;
+}
+
+.emailProfile {
+  font-size: 1.2em;
+  font-weight: 900;
+  margin-top: 5px;
+}
+
+.OptionsProfile {
+  height: 100%;
+  margin: 100px 0;
+}
+
+.OptionsBox {
+  border-bottom: 2px solid #cecece;
+  border-top: 2px solid #cecece;
+  margin: 20px 0;
+  padding: 20px 0;
+}
+
+.buttonsProfile {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  outline: none;
+}
+
+.buttonsProfile:hover {
+  transform: scale(1.1);
+  transition: 0.3s;
+}
+
+.buttonsProfile:active {
+  transform: scale(0.9);
+  transition: 0.3s;
+}
