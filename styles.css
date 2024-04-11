@@ -1,0 +1,25 @@
+html, body {
+  font-family: Epilogue , sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+button, input {
+  font-family: Epilogue , sans-serif;
+}
+
+.boodyApp {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 412px;
+  padding-left: 0;
+  width: 100%;
+}
