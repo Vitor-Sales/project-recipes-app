@@ -74,3 +74,10 @@
   transform: scale(0.9);
   transition: 0.3s;
 }
+
+.favoriteRecipeImage {
+  border-radius: 10px;
+  height: 200px;
+  margin: 10px;
+  width: 200px;
+}
