@@ -18,6 +18,29 @@ export type LoginType = {
   removeEmail: () => void;
 };
 
+export interface Meal {
+  idMeal: string;
+  strMeal: string;
+  strMealThumb: string;
+}
+
+export interface Drink {
+  idDrink: string;
+  strDrink: string;
+  strDrinkThumb: string;
+}
+export interface Category {
+  strCategory: string;
+}
+
+export interface BodyMealsProps {
+  meals: Meal[] | undefined;
+}
+
+export interface BodyDrinksProps {
+  drinks: Drink[];
+}
+
 export type DrinkType = {
   [key: string ]: string,
   idDrink: string,
@@ -35,24 +58,6 @@ export type DrinkType = {
   dateModified: string
 };
 
-// export type DrinkIngredientsType = {
-//   strIngredient1: string | null,
-//   strIngredient2: string | null,
-//   strIngredient3: string | null,
-//   strIngredient4: string | null,
-//   strIngredient5: string | null,
-//   strIngredient6: string | null,
-//   strIngredient7: string | null,
-//   strIngredient8: string | null,
-//   strIngredient9: string | null,
-//   strIngredient10: string | null,
-//   strIngredient11: string | null,
-//   strIngredient12: string | null,
-//   strIngredient13: string | null,
-//   strIngredient14: string | null,
-//   strIngredient15: string | null,
-// };
-
 export type MealType = {
   [key: string ]: string,
   idMeal: string,
@@ -64,29 +69,6 @@ export type MealType = {
   strTags: string,
   strYoutube: string,
 };
-
-// export type MealIngredientType = {
-//   strIngredient1: string | null,
-//   strIngredient2: string | null,
-//   strIngredient3: string | null,
-//   strIngredient4: string | null,
-//   strIngredient5: string | null,
-//   strIngredient6: string | null,
-//   strIngredient7: string | null,
-//   strIngredient8: string | null,
-//   strIngredient9: string | null,
-//   strIngredient10: string | null,
-//   strIngredient11: string | null,
-//   strIngredient12: string | null,
-//   strIngredient13: string | null,
-//   strIngredient14: string | null,
-//   strIngredient15: string | null,
-//   strIngredient16: string | null,
-//   strIngredient17: string | null,
-//   strIngredient18: string | null,
-//   strIngredient19: string | null,
-//   strIngredient20: string | null,
-// };
 
 export type RecipeType = {
   id: string,
