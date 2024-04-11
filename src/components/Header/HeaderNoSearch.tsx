@@ -8,16 +8,11 @@ export default function HeaderNoSearch() {
 
   return (
     <div className={ styles.header }>
-      <button
-        onClick={ () => navigate('/meals') } // Altere esta linha no fim do projeto
-        className={ styles.headerButton }
-      >
-        <img
-          src={ LogoHeader }
-          alt="Logo"
-          className={ styles.LogoHeader }
-        />
-      </button>
+      <img
+        src={ LogoHeader }
+        alt="Logo"
+        className={ styles.LogoHeader }
+      />
       <div className={ styles.search }>
         {/* // Sem Botao de pesquisa na pagina */}
         <button

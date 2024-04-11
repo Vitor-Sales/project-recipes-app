@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import RecipeContext from './RecipeContext';
-import { RecipeContextType } from '../types';
 
 type RecipeProviderProps = {
   children: React.ReactNode;

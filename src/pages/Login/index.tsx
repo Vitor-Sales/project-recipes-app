@@ -21,7 +21,7 @@ export default function Login() {
 
   return (
     <div className={ styles.meals }>
-      <div className={ styles.headerLogin }>
+      <div className={ styles.LogoLogin }>
         <img src={ LogoBig } alt="Logo" />
       </div>
       <div className={ styles.tomates }>
