@@ -6,16 +6,7 @@
   color: white;
   display: flex;
   justify-content: space-between;
-
-  /*   left: 0; */
-
-  /*   position: fixed; */
-
-  /*   top: 0; */
-
-  /* top: 0; */
-
-  /* position: static; */
+  padding: 15px 20px;
   width: 100%;
 }
 

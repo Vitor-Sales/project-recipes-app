@@ -7,6 +7,8 @@ type RecipeProviderProps = {
 
 function RecipeProvider({ children }: RecipeProviderProps) {
   const [searchVisible, setSearchVisible] = useState(false);
+  const [searchUrlDrink, setSearchUrlDrink] = useState<string>('');
+  const [searchUrlMeal, setSearchUrlMeal] = useState<string>('');
   const [meals, setMeals] = useState<never[]>([]);
   const [drinks, setDrinks] = useState<never[]>([]);
 
@@ -37,6 +39,10 @@ function RecipeProvider({ children }: RecipeProviderProps) {
   const values = {
     searchVisible,
     searchToggle,
+    searchUrlDrink,
+    setSearchUrlDrink,
+    searchUrlMeal,
+    setSearchUrlMeal,
     drinks,
     meals,
   };

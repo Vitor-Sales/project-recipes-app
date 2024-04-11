@@ -1,6 +1,10 @@
 export type RecipeContextType = {
   searchVisible: boolean;
   searchToggle: () => void;
+  searchUrlDrink: string;
+  setSearchUrlDrink: (url: string) => void;
+  searchUrlMeal: string;
+  setSearchUrlMeal: (url: string) => void;
   meals: MealType[],
   drinks: DrinkType[],
 };
