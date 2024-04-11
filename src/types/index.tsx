@@ -1,9 +1,8 @@
-// A tipagem de RecipeContextType e Recipe foi feita apenas para o lint nao reclamar, quem for criar recipes deve modificar essa tipagem de acordo com seu código
-
 export type RecipeContextType = {
-  // recipes: Recipe[];
   searchVisible: boolean;
   searchToggle: () => void;
+  meals: MealType[],
+  drinks: DrinkType[],
 };
 
 export type Recipe = {
@@ -41,3 +40,44 @@ export interface BodyMealsProps {
 export interface BodyDrinksProps {
   drinks: Drink[];
 }
+
+export type DrinkType = {
+  [key: string ]: string,
+  idDrink: string,
+  strDrink: string,
+  strTags: string,
+  strCategory: string,
+  strIBA: string,
+  strAlcoholic: string,
+  strGlass: string,
+  strInstructions: string,
+  strDrinkThumb: string,
+  strImageSource: string,
+  strImageAttribution: string,
+  strCreativeCommonsConfirmed: string,
+  dateModified: string
+};
+
+export type MealType = {
+  [key: string ]: string,
+  idMeal: string,
+  strMeal: string,
+  strCategory: string,
+  strArea: string,
+  strInstructions: string,
+  strMealThumb: string,
+  strTags: string,
+  strYoutube: string,
+};
+
+export type RecipeType = {
+  id: string,
+  type: string,
+  nationality: string,
+  category: string,
+  alcoholicOrNot: string,
+  name: string,
+  image: string,
+  doneDate: string,
+  tags: string,
+};

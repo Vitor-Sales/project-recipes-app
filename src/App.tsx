@@ -24,9 +24,8 @@ function App() {
         <Route path="/profile" element={ <Profile /> } />
         <Route path="/done-recipes" element={ <DoneRecipes /> } />
         <Route path="/favorite-recipes" element={ <FavoriteRecipes /> } />
-        <Route path="/recipes" element={ <Recipes /> } />
-        <Route path="/meals:id" element={ <RecipeDetails /> } />
-        <Route path="/drinks:id" element={ <RecipeDetails /> } />
+        <Route path="/meals/:id" element={ <RecipeDetails /> } />
+        <Route path="/drinks/:id" element={ <RecipeDetails /> } />
         <Route path="/meals/:id/in-progress" element={ <RecipeInProgress /> } />
         <Route path="/drinks/:id/in-progress" element={ <RecipeInProgress /> } />
       </Routes>
