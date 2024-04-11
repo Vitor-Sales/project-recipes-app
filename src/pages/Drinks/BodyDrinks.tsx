@@ -12,29 +12,27 @@ function BodyDrinks({ drinks }: BodyDrinksProps) {
 
   return (
     <div className={ styles.bodyDrinks }>
-      <div className={ styles.drinksDisplay }>
-        {drinks.map((drink, index) => (
-          <div
-            key={ drink.idDrink }
-            className={ styles.drinkCard }
-            data-testid={ `${index}-recipe-card` }
-            onClick={ () => handleCardClick(drink.idDrink) }
-            role="button"
-            tabIndex={ 0 }
-            onKeyPress={ () => handleCardClick(drink.idDrink) }
-          >
-            <img
-              src={ drink.strDrinkThumb }
-              alt={ drink.strDrink }
-              className={ styles.drinkImg }
-              data-testid={ `${index}-card-img` }
-            />
-            <span className={ styles.drinkName } data-testid={ `${index}-card-name` }>
-              {drink.strDrink}
-            </span>
-          </div>
-        ))}
-      </div>
+      {drinks.map((drink, index) => (
+        <div
+          key={ drink.idDrink }
+          className={ styles.drinkCard }
+          data-testid={ `${index}-recipe-card` }
+          onClick={ () => handleCardClick(drink.idDrink) }
+          role="button"
+          tabIndex={ 0 }
+          onKeyPress={ () => handleCardClick(drink.idDrink) }
+        >
+          <img
+            src={ drink.strDrinkThumb }
+            alt={ drink.strDrink }
+            className={ styles.drinkImg }
+            data-testid={ `${index}-card-img` }
+          />
+          <span className={ styles.drinkName } data-testid={ `${index}-card-name` }>
+            {drink.strDrink}
+          </span>
+        </div>
+      ))}
     </div>
   );
 }

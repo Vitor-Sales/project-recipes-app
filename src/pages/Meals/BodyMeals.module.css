@@ -1,15 +1,9 @@
 .bodyMeals {
   align-items: center;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-top: 20px;
-}
-
-.mealsDiplay {
-  display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin-top: 20px;
 }
 
 .mealsCard {
@@ -37,7 +31,7 @@
 
 .mealsImg {
   border-radius: 9px 9px 0 0;
-  width: 160px;
+  width: 140px;
 }
 
 .mealsName {
@@ -46,6 +40,9 @@
   font-weight: 500;
   line-height: 12.3px;
   margin: 7px 0;
+  overflow: hidden;
   text-align: left;
-
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 130px;
 }
