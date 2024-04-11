@@ -51,8 +51,6 @@ export default function BodyFavoriteRecipes() {
     const storedFavorites = localStorage.getItem('favoriteRecipes');
     if (storedFavorites) {
       setFavorites(JSON.parse(storedFavorites));
-    } else {
-      setFavorites(favoriteRecipes);
     }
   }, []);
 
@@ -88,8 +86,6 @@ export default function BodyFavoriteRecipes() {
       navigator.clipboard.writeText(recipeUrl).then(() => {
         setLinkCopied(true);
         setTimeout(() => setLinkCopied(false), 5000);
-      }).catch(() => {
-        alert('Failed to copy recipe URL.');
       });
     }
   };
@@ -131,9 +127,9 @@ export default function BodyFavoriteRecipes() {
         </div>
       </div>
       <div>
-        <ul>
+        <div>
           {favorites.map((recipe, index) => (
-            <li key={ recipe.id }>
+            <div key={ recipe.id }>
               <fieldset>
                 <Link to={ `/${recipe.type}s/${recipe.id}` }>
                   <img
@@ -173,9 +169,9 @@ export default function BodyFavoriteRecipes() {
                   />
                 </button>
               </fieldset>
-            </li>
+            </div>
           ))}
-        </ul>
+        </div>
       </div>
     </div>
   );
