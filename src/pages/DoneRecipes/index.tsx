@@ -5,6 +5,7 @@ import Header from '../../components/Header/HeaderNoSearch';
 import Footer from '../../components/Footer';
 import styles from './DoneRecipes.module.css';
 import BodyDoneRecipes from './BodyDoneRecipes';
+
 import shareIcon from '../../images/shareIcon.svg';
 
 export default function DoneRecipes() {
