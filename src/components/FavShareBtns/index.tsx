@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import style from './FavShareBtns.module.css';
 import shareIcon from '../../images/shareIcon.svg';
 import blackheartIcon from '../../images/blackHeartIcon.svg';
 import whiteHeartIcon from '../../images/whiteHeartIcon.svg';
@@ -64,16 +65,18 @@ function FavShareBtns({
     <div>
       <button
         onClick={ handleCopy }
+        className={ style.ButtonSocial }
       >
         <img data-testid="share-btn" src={ shareIcon } alt="share" />
       </button>
       <button
         onClick={ () => handleFavorite(isFavorite) }
+        className={ style.ButtonSocial }
       >
         <img
           data-testid="favorite-btn"
           src={ isFavorite ? blackheartIcon : whiteHeartIcon }
-          alt=""
+          alt="favorite"
         />
       </button>
       {isCopied && <p>Link copied!</p>}

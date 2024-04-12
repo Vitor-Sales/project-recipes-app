@@ -22,9 +22,9 @@ function DetailsBtn({ idRecipe }: { idRecipe: string }) {
 
   return (
     <button
-      className={ style.startBtn }
       data-testid="start-recipe-btn"
       onClick={ handleClick }
+      className={ style.startBtn }
     >
       {verification
         ? 'Continue Recipe' : 'Start Recipe'}

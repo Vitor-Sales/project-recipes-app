@@ -1,5 +1,33 @@
-.startBtn {
+/* .startBtn {
   background-color: lightgreen;
   bottom: 0;
   position: fixed;
+} */
+
+
+.startBtn {
+  background-color: #fcc436;
+  border: none;
+  border-radius: 5px;
+  bottom: 0;
+  color: white;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 900;
+  padding: 10px;
+  position: fixed;
+  text-align: center;
+  text-transform: uppercase;
+  width: 360px;
+}
+
+.startBtn:hover {
+  background-color: #f7b500;
+  transform: scale(1.1);
+  transition: 0.3s;
+}
+
+.startBtn:active {
+  transform: scale(0.9);
+  transition: 0.3s;
 }
