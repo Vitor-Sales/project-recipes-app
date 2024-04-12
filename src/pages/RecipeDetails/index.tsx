@@ -39,6 +39,10 @@ function RecipeDetails() {
     }
   }, []);
 
+  if (!Object.keys(detail).length && !Object.keys(detail1).length) {
+    return <h1>Loading...</h1>;
+  }
+
   return (
     Object.keys(detail).includes('idMeal')
       ? (
