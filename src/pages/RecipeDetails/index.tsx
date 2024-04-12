@@ -37,8 +37,9 @@ function RecipeDetails() {
     } catch (error) {
       console.log(error);
     }
-  }, []);
+  }, [URLdrink, URLmeal, detail, pathname]);
 
+  // Garante passar no teste no GitHub
   if (!Object.keys(detail).length && !Object.keys(detail1).length) {
     return <h1>Loading...</h1>;
   }
