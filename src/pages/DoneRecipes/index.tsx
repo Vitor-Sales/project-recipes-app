@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { DoneRecipesType } from '../../types';
-import Header from '../../components/Header/HeaderNoSearch';
+import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import styles from './DoneRecipes.module.css';
 import BodyDoneRecipes from './BodyDoneRecipes';
