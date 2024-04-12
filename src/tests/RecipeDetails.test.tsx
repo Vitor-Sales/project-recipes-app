@@ -12,8 +12,6 @@ describe('Tela de Detalhes', () => {
     const lastIngredient = await screen.findByText(/sea salt pinch/i);
     const instructions = await screen.findByText(/and the onion with a pinch of/i);
     const video = await screen.findByTestId('video');
-    // const firstRecommendation = await screen.findByTestId('1-recommendation-title');
-    // const thirdRecommendation = await screen.findByTestId('2-recommendation-title');
 
     expect(title).toBeInTheDocument();
     expect(recipeImage).toBeInTheDocument();
@@ -22,8 +20,6 @@ describe('Tela de Detalhes', () => {
     expect(lastIngredient).toBeInTheDocument();
     expect(instructions).toBeInTheDocument();
     expect(video).toBeInTheDocument();
-    // expect(firstRecommendation).toBeInTheDocument();
-    // expect(thirdRecommendation).not.toBeInTheDocument();
   });
 
   it('Renderização dos botões na tela de BEBIDA', async () => {
@@ -47,8 +43,6 @@ describe('Tela de Detalhes', () => {
     const firstIngredient = await screen.findByText('Tequila 1 1/2 oz');
     const lastIngredient = await screen.findByText(/Salt null/i);
     const instructions = await screen.findByText(/present to the lips of the imbiber/i);
-    // const firstRecommendation = await screen.findByTestId('1-recommendation-title');
-    // const thirdRecommendation = await screen.findByTestId('2-recommendation-title');
 
     expect(title).toBeInTheDocument();
     expect(recipeImage).toBeInTheDocument();
@@ -56,8 +50,6 @@ describe('Tela de Detalhes', () => {
     expect(firstIngredient).toBeInTheDocument();
     expect(lastIngredient).toBeInTheDocument();
     expect(instructions).toBeInTheDocument();
-    // expect(firstRecommendation).toBeInTheDocument();
-    // expect(thirdRecommendation).not.toBeInTheDocument();
   });
 
   it('Renderização dos botões na tela de COMIDA', async () => {
