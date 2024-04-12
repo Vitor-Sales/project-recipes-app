@@ -26,14 +26,50 @@ describe('Tela de Detalhes', () => {
     // expect(thirdRecommendation).not.toBeInTheDocument();
   });
 
-  it('Renderização dos botôes', async () => {
+  it('Renderização dos botões na tela de BEBIDA', async () => {
     renderWithRouter(<App />, { route: '/meals/52977' });
     const buttons = await screen.findAllByRole('button');
     const shareBtn = await screen.findByTestId('share-btn');
     const favoriteBtn = await screen.findByTestId('favorite-btn');
+    const startBtn = await screen.findByRole('button', { name: /start recipe/i });
 
     expect(buttons).toHaveLength(3);
     expect(shareBtn).toBeInTheDocument();
     expect(favoriteBtn).toBeInTheDocument();
+    expect(startBtn).toBeInTheDocument();
+  });
+
+  it('Renderização dos detalhes da BEBIDA', async () => {
+    renderWithRouter(<App />, { route: '/drinks/11007' });
+    const title = await screen.findByText(/Margarita/i);
+    const recipeImage = await screen.findByTestId('recipe-photo');
+    const category = await screen.findByTestId('recipe-category');
+    const firstIngredient = await screen.findByText('Tequila 1 1/2 oz');
+    const lastIngredient = await screen.findByText(/Salt null/i);
+    const instructions = await screen.findByText(/present to the lips of the imbiber/i);
+    // const firstRecommendation = await screen.findByTestId('1-recommendation-title');
+    // const thirdRecommendation = await screen.findByTestId('2-recommendation-title');
+
+    expect(title).toBeInTheDocument();
+    expect(recipeImage).toBeInTheDocument();
+    expect(category).toBeInTheDocument();
+    expect(firstIngredient).toBeInTheDocument();
+    expect(lastIngredient).toBeInTheDocument();
+    expect(instructions).toBeInTheDocument();
+    // expect(firstRecommendation).toBeInTheDocument();
+    // expect(thirdRecommendation).not.toBeInTheDocument();
+  });
+
+  it('Renderização dos botões na tela de COMIDA', async () => {
+    renderWithRouter(<App />, { route: '/drinks/11007' });
+    const buttons = await screen.findAllByRole('button');
+    const shareBtn = await screen.findByTestId('share-btn');
+    const favoriteBtn = await screen.findByTestId('favorite-btn');
+    const startBtn = await screen.findByRole('button', { name: /start recipe/i });
+
+    expect(buttons).toHaveLength(3);
+    expect(shareBtn).toBeInTheDocument();
+    expect(favoriteBtn).toBeInTheDocument();
+    expect(startBtn).toBeInTheDocument();
   });
 });
