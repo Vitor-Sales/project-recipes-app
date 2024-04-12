@@ -1,4 +1,4 @@
-import Header from '../../components/Header/HeaderNoSearch';
+import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import styles from './FavoriteRecipes.module.css';
 import BodyFavoriteRecipes from './BodyFavoriteRecipes';

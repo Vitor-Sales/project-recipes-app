@@ -16,29 +16,27 @@ function BodyMeals({ meals }: BodyMealsProps) {
 
   return (
     <div className={ styles.bodyMeals }>
-      <div className={ styles.mealsDisplay }>
-        {meals.map((meal, index) => (
-          <div
-            key={ meal.idMeal }
-            className={ styles.mealsCard }
-            data-testid={ `${index}-recipe-card` }
-            onClick={ () => handleCardClick(meal.idMeal) }
-            role="button"
-            tabIndex={ 0 }
-            onKeyPress={ () => handleCardClick(meal.idMeal) }
-          >
-            <img
-              src={ meal.strMealThumb }
-              alt={ meal.strMeal }
-              className={ styles.mealsImg }
-              data-testid={ `${index}-card-img` }
-            />
-            <span className={ styles.mealsName } data-testid={ `${index}-card-name` }>
-              {meal.strMeal}
-            </span>
-          </div>
-        ))}
-      </div>
+      {meals.map((meal, index) => (
+        <div
+          key={ meal.idMeal }
+          className={ styles.mealsCard }
+          data-testid={ `${index}-recipe-card` }
+          onClick={ () => handleCardClick(meal.idMeal) }
+          role="button"
+          tabIndex={ 0 }
+          onKeyPress={ () => handleCardClick(meal.idMeal) }
+        >
+          <img
+            src={ meal.strMealThumb }
+            alt={ meal.strMeal }
+            className={ styles.mealsImg }
+            data-testid={ `${index}-card-img` }
+          />
+          <span className={ styles.mealsName } data-testid={ `${index}-card-name` }>
+            {meal.strMeal}
+          </span>
+        </div>
+      ))}
     </div>
   );
 }

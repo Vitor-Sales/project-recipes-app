@@ -8,7 +8,7 @@
   width: 100%;
 }
 
-.imputSearch {
+.inputSearch {
   align-items: center;
   border: 1px solid #b1b1b1;
   border-radius: 20px;
@@ -46,7 +46,7 @@
 
 .filterSearch label {
   font-family: Epilogue , sans-serif;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.03em;
   line-height: 12.3px;
