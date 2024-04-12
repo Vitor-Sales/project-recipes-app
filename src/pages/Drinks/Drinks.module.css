@@ -3,13 +3,12 @@
   flex-direction: column;
   font-family: Epilogue , sans-serif;
   height: 100vh;
-  justify-content: space-between;
+  justify-content: top;
   width: 100%;
 }
 
 .body {
   padding-bottom: 70px;
-  padding-top: 70px;
   width: 100%;
 }
 
@@ -32,4 +31,3 @@
   margin: 0;
   width: 100%;
 }
-

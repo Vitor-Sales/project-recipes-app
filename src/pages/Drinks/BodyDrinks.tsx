@@ -1,42 +1,40 @@
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { BodyDrinksProps } from '../../types';
 import styles from './BodyDrinks.module.css';
 
-export default function BodyDrinks() {
+function BodyDrinks({ drinks }: BodyDrinksProps) {
+  const navigate = useNavigate();
+
+  const handleCardClick = (id: string) => {
+    navigate(`/drinks/${id}`);
+  };
+
   return (
     <div className={ styles.bodyDrinks }>
-      <div className={ styles.drinksDiplay }>
-        <div className={ styles.drinkCard }>
-          <img src="https://www.thecocktaildb.com/images/media/drink/5vh9ld1504390683.jpg" alt="Drink" className={ styles.drinkImg } />
-          <span className={ styles.drinkName }>Drink Name</span>
+      {drinks.map((drink, index) => (
+        <div
+          key={ drink.idDrink }
+          className={ styles.drinkCard }
+          data-testid={ `${index}-recipe-card` }
+          onClick={ () => handleCardClick(drink.idDrink) }
+          role="button"
+          tabIndex={ 0 }
+          onKeyPress={ () => handleCardClick(drink.idDrink) }
+        >
+          <img
+            src={ drink.strDrinkThumb }
+            alt={ drink.strDrink }
+            className={ styles.drinkImg }
+            data-testid={ `${index}-card-img` }
+          />
+          <span className={ styles.drinkName } data-testid={ `${index}-card-name` }>
+            {drink.strDrink}
+          </span>
         </div>
-        <div className={ styles.drinkCard }>
-          <img src="https://www.thecocktaildb.com/images/media/drink/5vh9ld1504390683.jpg" alt="Drink" className={ styles.drinkImg } />
-          <span className={ styles.drinkName }>Drink Name</span>
-        </div>
-        <div className={ styles.drinkCard }>
-          <img src="https://www.thecocktaildb.com/images/media/drink/5vh9ld1504390683.jpg" alt="Drink" className={ styles.drinkImg } />
-          <span className={ styles.drinkName }>Drink Name</span>
-        </div>
-        <div className={ styles.drinkCard }>
-          <img src="https://www.thecocktaildb.com/images/media/drink/5vh9ld1504390683.jpg" alt="Drink" className={ styles.drinkImg } />
-          <span className={ styles.drinkName }>Drink Name</span>
-        </div>
-        <div className={ styles.drinkCard }>
-          <img src="https://www.thecocktaildb.com/images/media/drink/5vh9ld1504390683.jpg" alt="Drink" className={ styles.drinkImg } />
-          <span className={ styles.drinkName }>Drink Name</span>
-        </div>
-        <div className={ styles.drinkCard }>
-          <img src="https://www.thecocktaildb.com/images/media/drink/5vh9ld1504390683.jpg" alt="Drink" className={ styles.drinkImg } />
-          <span className={ styles.drinkName }>Drink Name</span>
-        </div>
-        <div className={ styles.drinkCard }>
-          <img src="https://www.thecocktaildb.com/images/media/drink/5vh9ld1504390683.jpg" alt="Drink" className={ styles.drinkImg } />
-          <span className={ styles.drinkName }>Drink Name</span>
-        </div>
-        <div className={ styles.drinkCard }>
-          <img src="https://www.thecocktaildb.com/images/media/drink/5vh9ld1504390683.jpg" alt="Drink" className={ styles.drinkImg } />
-          <span className={ styles.drinkName }>Drink Name</span>
-        </div>
-      </div>
+      ))}
     </div>
   );
 }
+
+export default BodyDrinks;

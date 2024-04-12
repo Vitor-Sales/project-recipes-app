@@ -1,15 +1,9 @@
 .bodyDrinks {
   align-items: center;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-top: 20px;
-}
-
-.drinksDiplay {
-  display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin-top: 20px;
 }
 
 .drinkCard {
@@ -43,9 +37,12 @@
 .drinkName {
   font-family: Epilogue , sans-serif;
   font-size: 12px;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 12.3px;
-  margin: 5px 0;
+  margin: 7px 0;
+  overflow: hidden;
   text-align: left;
-
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 130px;
 }

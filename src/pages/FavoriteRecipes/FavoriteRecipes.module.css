@@ -3,7 +3,7 @@
   flex-direction: column;
   font-family: Epilogue , sans-serif;
   height: 100vh;
-  justify-content: space-between;
+  justify-content: top;
   width: 100%;
 }
 
@@ -73,4 +73,11 @@
 .buttonsFavorite:active {
   transform: scale(0.9);
   transition: 0.3s;
+}
+
+.favoriteRecipeImage {
+  border-radius: 10px;
+  height: 200px;
+  margin: 10px;
+  width: 200px;
 }

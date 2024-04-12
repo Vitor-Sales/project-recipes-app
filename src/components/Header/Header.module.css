@@ -6,10 +6,7 @@
   color: white;
   display: flex;
   justify-content: space-between;
-  left: 0;
   padding: 15px 20px;
-  position: fixed;
-  top: 0;
   width: 100%;
 }
 

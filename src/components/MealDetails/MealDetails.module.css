@@ -1,0 +1,44 @@
+.title {
+
+  /* position: absolute;
+  color: white; */
+}
+
+.img {
+  height: 300px;
+}
+
+.instructions {
+  width: 300px;
+}
+
+.recommendedScroll {
+  display: flex;
+  gap: 10px;
+  overflow-y: hidden;
+  width: 300px;
+}
+
+.recommendedCard {
+  display: flex;
+  flex-direction: column;
+  width: 50vw;
+}
+
+.recommendedCard img {
+  border-radius: 5px 5px 0 0;
+  width: 160px;
+}
+
+.recommendedCard p {
+  border: 1px solid #b1b1b1;
+  border-radius: 0 0 5px 5px;
+  padding: 3px 10px;
+}
+
+.startBtn {
+  background-color: lightgreen;
+  bottom: 0;
+  position: fixed;
+  right: 40%;
+}
