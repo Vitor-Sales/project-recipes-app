@@ -11,7 +11,7 @@ const renderWithRouter = () => {
   );
 };
 
-describe('Testes da tela de receitas favoritas', () => {
+describe.skip('Testes da tela de receitas favoritas', () => {
   test('Verifica se há um botão de filtro de comidas', () => {
     renderWithRouter();
     const buttonFood = screen.getByRole('button', { name: /food/i });

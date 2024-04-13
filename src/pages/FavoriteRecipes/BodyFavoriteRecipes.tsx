@@ -126,33 +126,40 @@ export default function BodyFavoriteRecipes() {
           </button>
         </div>
       </div>
-      <div>
-        <div>
-          {favorites.map((recipe, index) => (
-            <div key={ recipe.id }>
-              <fieldset>
-                <Link to={ `/${recipe.type}s/${recipe.id}` }>
-                  <img
-                    className={ style.favoriteRecipeImage }
-                    src={ recipe.image }
-                    data-testid={ `${index}-horizontal-image` }
-                    alt={ recipe.name }
-                  />
-                </Link>
-                <fieldset>
-                  <Link to={ `/${recipe.type}s/${recipe.id}` }>
-                    <p data-testid={ `${index}-horizontal-name` }>
-                      {recipe.name }
-                    </p>
-                  </Link>
-                  <p data-testid={ `${index}-horizontal-top-text` }>
-                    { `${recipe.nationality} - ${recipe.category}` }
-                  </p>
-                  <p data-testid={ `${index}-horizontal-top-text` }>
-                    { recipe.alcoholicOrNot }
-                  </p>
-                </fieldset>
-                <button onClick={ () => shareRecipe(recipe.id, recipe.type) }>
+      <div className={ style.BodyFavoriteRecipes }>
+        {favorites.map((recipe, index) => (
+          <div key={ recipe.id } className={ style.CardFavoriteRecipes }>
+            <Link to={ `/${recipe.type}s/${recipe.id}` }>
+              <img
+                className={ style.favoriteRecipeImage }
+                src={ recipe.image }
+                data-testid={ `${index}-horizontal-image` }
+                alt={ recipe.name }
+              />
+            </Link>
+            <div className={ style.favoriteRecipeInfo }>
+
+              <Link
+                to={ `/${recipe.type}s/${recipe.id}` }
+                className={ style.favoriteRecipeName }
+              >
+                <span data-testid={ `${index}-horizontal-name` }>
+                  {recipe.name }
+                </span>
+              </Link>
+              <div className={ style.favoriteCategory }>
+                <p data-testid={ `${index}-horizontal-top-text` }>
+                  { `${recipe.nationality} - ${recipe.category}` }
+                </p>
+                <p data-testid={ `${index}-horizontal-top-text` }>
+                  { recipe.alcoholicOrNot }
+                </p>
+              </div>
+              <div className={ style.favoriteButtonGrup }>
+                <button
+                  className={ style.ButtonSocial }
+                  onClick={ () => shareRecipe(recipe.id, recipe.type) }
+                >
                   <img
                     src={ shareIcon }
                     alt="compartilhar"
@@ -161,17 +168,20 @@ export default function BodyFavoriteRecipes() {
                   {linkCopied
                     && <span className={ style.shareMessage }>Link copied!</span>}
                 </button>
-                <button onClick={ () => handleUnfavoriteClick(recipe.id) }>
+                <button
+                  className={ style.ButtonSocial }
+                  onClick={ () => handleUnfavoriteClick(recipe.id) }
+                >
                   <img
                     src={ blackHeartIcon }
                     alt="desfavoritar"
                     data-testid={ `${index}-horizontal-favorite-btn` }
                   />
                 </button>
-              </fieldset>
+              </div>
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
     </div>
   );

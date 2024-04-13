@@ -9,7 +9,6 @@
 
 .body {
   padding-bottom: 70px;
-  padding-top: 70px;
   width: 100%;
 }
 
@@ -75,9 +74,80 @@
   transition: 0.3s;
 }
 
+/* Body Favorite Recipes */
+.BodyFavoriteRecipes {
+  display: flex;
+  flex-direction: column;
+  font-family: Epilogue , sans-serif;
+  height: 100%;
+  justify-content: space-between;
+  margin: 0 20px;
+}
+
+.CardFavoriteRecipes {
+  align-items: center;
+  border: 1px solid #b1b1b1;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
 .favoriteRecipeImage {
   border-radius: 10px;
-  height: 200px;
-  margin: 10px;
-  width: 200px;
+  height: 134.85px;
+  width: 163.35px;
 }
+
+.favoriteRecipeInfo {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  width: 100%;
+}
+
+.favoriteRecipeName {
+  color: #1a1b1c;
+  cursor: pointer;
+  font-family: Epilogue , sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: left;
+  text-decoration: none;
+}
+
+.favoriteCategory {
+  display: flex;
+  flex-direction: row;
+  font-family: Epilogue , sans-serif;
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 9.23px;
+  margin: 5px 0;
+  text-align: center;
+}
+
+.favoriteCategory p {
+  margin-right: 10px;
+}
+
+.ButtonSocial {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  outline: none;
+}
+
+.ButtonSocial:hover {
+  transform: scale(1.1);
+  transition: 0.3s;
+}
+
+.ButtonSocial:active {
+  transform: scale(0.9);
+  transition: 0.3s;
+}
+
