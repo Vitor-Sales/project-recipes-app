@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { MemoryRouter } from 'react-router-dom';
-import FavoriteRecipes from '../../pages/FavoriteRecipes';
+import FavoriteRecipes from '../pages/FavoriteRecipes';
 
 const renderWithRouter = () => {
   return render(
