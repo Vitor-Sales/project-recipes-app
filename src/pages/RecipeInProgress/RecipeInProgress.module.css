@@ -18,7 +18,6 @@
 
 .Banner {
   align-items: center;
-  background-position: left center;
   background-repeat: no-repeat;
   filter: brightness(0.8);
   height: 200px;
@@ -27,11 +26,44 @@
   width: 100%;
 }
 
+.ButtonSocial01 {
+  margin-left: 200px;
+}
+
+.ButtonSocial, .ButtonSocial01 {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  font-size: 1.2rem;
+  outline: none;
+  right: 2px;
+}
+
+.ButtonSocial01:hover {
+  transform: scale(1.1);
+  transition: 0.3s;
+}
+
+.ButtonSocial01:active {
+  transform: scale(0.9);
+  transition: 0.3s;
+}
+
+.ButtonSocial:hover {
+  transform: scale(1.1);
+  transition: 0.3s;
+}
+
+.ButtonSocial:active {
+  transform: scale(0.9);
+  transition: 0.3s;
+}
+
 .HeaderLine {
   align-items: center;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   padding: 20px;
   position: relative;
   top: -200px;
@@ -83,20 +115,7 @@
   width: 100%;
 }
 
-.ListDetails {
-  border: #b1b1b1 1px solid;
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  font-family: Epilogue , sans-serif;
-  justify-content: space-between;
-  margin-top: 10px;
-  padding: 20px;
-  padding-left: 40px;
-  width: 100%;
-}
-
-.Instructions {
+.Ins {
   border: #b1b1b1 1px solid;
   border-radius: 10px;
   font-family: Epilogue , sans-serif;
@@ -118,7 +137,7 @@
   width: 100%;
 }
 
-.StartRecipeBtt {
+.FinishBtn {
   background-color: #fcc436;
   border: none;
   border-radius: 5px;
@@ -134,12 +153,12 @@
   width: 336px;
 }
 
-.StartRecipeBtt:hover {
+.FinishBtn:hover {
   transform: scale(1.05);
   transition: 0.3s;
 }
 
-.StartRecipeBtt:active {
+.FinishBtn:active {
   transform: scale(0.9);
   transition: 0.3s;
 }
@@ -193,4 +212,58 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   width: 130px;
+}
+
+
+/* FONTE: https://uiverse.io/adamgiebl/curly-lizard-40 */
+.ListDetails {
+  border: #b1b1b1 1px solid;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  font-family: Epilogue , sans-serif;
+  justify-content: space-between;
+  margin-top: 10px;
+  padding: 20px;
+  padding-left: 40px;
+  width: 100%;
+}
+
+.ListDetails input {
+  appearance: none;
+  background-color: transparent;
+  border: 2px solid #fcc436;
+  border-radius: 5px;
+  cursor: pointer;
+  display: inline-block;
+  height: 20px;
+  margin-right: 10px;
+  position: relative;
+  width: 20px;
+}
+
+.ListDetails input:before {
+  background-color: #fcc436;
+  border-radius: 3px;
+  content: '';
+  display: block;
+  height: 10px;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: all 0.3s ease-in-out;
+  width: 10px;
+}
+
+.ListDetails input:checked:before {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.ListDetails label {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  font-size: 18px;
+  user-select: none;
 }

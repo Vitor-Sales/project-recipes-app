@@ -2,7 +2,7 @@ import { screen } from '@testing-library/dom';
 import App from '../App';
 import renderWithRouter from './renderWithRouter';
 
-describe.skip('Tela de Detalhes', () => {
+describe('Tela de Detalhes', () => {
   it('Renderização dos detalhes da COMIDA', async () => {
     renderWithRouter(<App />, { route: '/meals/52977' });
     const title = await screen.findByText(/corba/i);

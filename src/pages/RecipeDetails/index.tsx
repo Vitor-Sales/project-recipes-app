@@ -31,7 +31,7 @@ function RecipeDetails() {
             .filter((e) => e[0].includes('strIngredient'))
             .filter((e) => e[1] !== '' && e[1] !== null));
         }
-        console.log(detail);
+        // console.log(detail);
       };
       fetchDetails();
     } catch (error) {

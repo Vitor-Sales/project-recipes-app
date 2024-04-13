@@ -8,8 +8,7 @@
 }
 
 .body {
-  padding-bottom: 70px;
-  padding-top: 70px;
+  padding: 70px 0;
   width: 100%;
 }
 
@@ -72,6 +71,92 @@
 }
 
 .buttonsDone:active {
+  transform: scale(0.9);
+  transition: 0.3s;
+}
+
+
+/* Body Done Recipes */
+.BodyDoneRecipes {
+  display: flex;
+  flex-direction: column;
+  font-family: Epilogue , sans-serif;
+  height: 100%;
+  justify-content: space-between;
+  margin: 0 20px;
+}
+
+
+.CardDoneRecipes {
+  align-items: center;
+  border: 1px solid #b1b1b1;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
+.DoneRecipeImage {
+  border-radius: 10px;
+  height: 134.85px;
+  width: 163.35px;
+}
+
+.DoneRecipeInfo {
+  align-items: start;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  width: 100%;
+}
+
+.DoneRecipeName {
+  color: #1a1b1c;
+  cursor: pointer;
+  font-family: Epilogue , sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: left;
+  text-decoration: none;
+}
+
+.DoneCategory {
+  display: flex;
+  flex-direction: row;
+  font-family: Epilogue , sans-serif;
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 12.5px;
+  margin: 5px 0;
+  text-align: center;
+}
+
+.DoneCategory p {
+  margin-right: 10px;
+}
+
+.DoneDate {
+  max-width: 9.3ch;
+  overflow: hidden;
+  text-overflow: clip;
+  white-space: nowrap;
+}
+
+.ButtonSocial {
+  background: none;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.ButtonSocial:hover {
+  transform: scale(1.1);
+  transition: 0.3s;
+}
+
+.ButtonSocial:active {
   transform: scale(0.9);
   transition: 0.3s;
 }
