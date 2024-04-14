@@ -35,6 +35,13 @@ describe('Realiza teste do contudo da pagina Logout:', () => {
     waitFor(() => expect(global.window.location.pathname).toEqual(ROTA_LOGOUT));
   });
 
+  it('Redireciona para a página cover About é clicado', async () => {
+    const { getByTestId } = renderWithRouter(<Profile />);
+    const botaoAbout = getByTestId('About-btn');
+    fireEvent.click(botaoAbout);
+    waitFor(() => expect(global.window.location.pathname).toEqual('/about-us'));
+  });
+
   it('Quando o botão de logout é clicado, localStorage.clear() é chamado', async () => {
     // Armazena um usuário fictício no localStorage
     const fakeUser = { email: 'example@example.com' };

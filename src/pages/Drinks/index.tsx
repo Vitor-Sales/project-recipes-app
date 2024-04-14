@@ -30,11 +30,17 @@ export default function Drinks() {
         const response = await fetch(url);
         const data = await response.json();
         setDrinks(data.drinks.slice(0, 12));
-      } catch (fetchError) {
-        console.error(
-          `Error fetching drinks for category ${selectedCategory}:`,
-          fetchError,
-        );
+        const fetchedsetDrinks = data.drinks.slice(0, 12);
+        setDrinks(fetchedsetDrinks);
+
+        // Se houver apenas uma receita, direcione para a página de detalhes
+        if (fetchedsetDrinks.length === 1) {
+          const { idDrink } = fetchedsetDrinks[0];
+          window.location.href = `/drinks/${idDrink}`;
+        }
+      } catch (error) {
+        alert("Sorry, we haven't found any recipes for these filters");
+        console.error(`Error fetching drinks for category ${selectedCategory}:`, error);
       }
     };
 

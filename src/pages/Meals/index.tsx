@@ -32,7 +32,16 @@ export default function Meals() {
         const response = await fetch(url);
         const data = await response.json();
         setMeals(data.meals.slice(0, 12));
+        const fetchedMeals = data.meals.slice(0, 12);
+        setMeals(fetchedMeals);
+
+        // Se houver apenas uma receita, direcione para a página de detalhes
+        if (fetchedMeals.length === 1 && selectedCategory !== 'Goat') {
+          const { idMeal } = fetchedMeals[0];
+          window.location.href = `/meals/${idMeal}`;
+        }
       } catch (error) {
+        alert("Sorry, we haven't found any recipes for these filters");
         console.error(`Error fetching meals for category ${selectedCategory}:`, error);
       }
     };

@@ -16,8 +16,6 @@ export default function HeaderLayout() {
     if (location.includes('meals') || location.includes('drinks')) {
       setShowSearch(true);
     }
-
-    console.log(showSearc);
   }, [location, showSearc]);
 
   return (
