@@ -78,10 +78,10 @@
 
 /* Body Favorite Recipes */
 .BodyFavoriteRecipes {
+  align-items: center;
   display: flex;
   flex-direction: column;
   font-family: Sriracha , cursive;
-  height: 100%;
   justify-content: space-between;
   margin: 0 20px;
 }
@@ -97,6 +97,7 @@
   height: 100%;
   justify-content: space-between;
   margin: 10px 0;
+  width: 340px;
 }
 
 .favoriteRecipeImage {

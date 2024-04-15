@@ -81,7 +81,7 @@ export default function AboutUs() {
         <p className="memberName">Ponto Focal:</p>
         <a
           target="_blank"
-          href="https://www.linkedin.com/in/"
+          href="https://www.linkedin.com/in/joioliveira/"
           className="member"
           rel="noreferrer"
         >
