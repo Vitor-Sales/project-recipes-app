@@ -4,6 +4,7 @@ import profileIcon from '../../images/Profile.svg';
 import DoneRecupies from '../../images/DoneRecipes.svg';
 import FavoriteRecipes from '../../images/FavoriteRecipes.svg';
 import Logout from '../../images/logout.svg';
+import About from '../../images/Design02/About.svg';
 
 export default function BodyProfile() {
   const navigate = useNavigate();
@@ -14,6 +15,7 @@ export default function BodyProfile() {
     localStorage.clear();
     navigate('/');
   }
+
   // teste@teste.com
   return (
     <div className={ styles.pageProfile }>
@@ -57,6 +59,14 @@ export default function BodyProfile() {
           </button>
         </div>
       </div>
+      <button
+        className={ styles.buttonsAbout }
+        onClick={ () => navigate('/about-us') }
+        data-testid="About-btn"
+      >
+        <img src={ About } alt="About" />
+        <span>About Us</span>
+      </button>
     </div>
   );
 }

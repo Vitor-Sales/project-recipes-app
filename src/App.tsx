@@ -1,14 +1,14 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import CoverPage from './pages/CoverPage';
+import AboutUs from './pages/AboutUs';
 import Login from './pages/Login';
 import Meals from './pages/Meals';
 import Drinks from './pages/Drinks';
 import Profile from './pages/Profile';
 import DoneRecipes from './pages/DoneRecipes';
 import FavoriteRecipes from './pages/FavoriteRecipes';
-import Recipes from './pages/Recipes'; // Importação do componente Recipes
+// import Recipes from './pages/Recipes'; // Importação do componente Recipes
 
 import RecipeDetails from './pages/RecipeDetails';
 import RecipeInProgress from './pages/RecipeInProgress';
@@ -18,7 +18,7 @@ function App() {
     <div className="device">
       <Routes>
         <Route path="/" element={ <Login /> } />
-        <Route path="/coverPage" element={ <CoverPage /> } />
+        <Route path="/about-us" element={ <AboutUs /> } />
         <Route path="/meals" element={ <Meals /> } />
         <Route path="/drinks" element={ <Drinks /> } />
         <Route path="/profile" element={ <Profile /> } />

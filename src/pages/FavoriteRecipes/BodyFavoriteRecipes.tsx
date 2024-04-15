@@ -19,33 +19,10 @@ interface IRecipe {
   image: string;
 }
 
-// Simulação de dados de receitas (substituir pela chamada à API)
-const favoriteRecipes: IRecipe[] = [
-  {
-    id: '52771',
-    type: 'meal',
-    nationality: 'Italian',
-    category: 'Vegetarian',
-    alcoholicOrNot: '',
-    name: 'Spicy Arrabiata Penne',
-    image: 'https://www.themealdb.com/images/media/meals/ustsqw1468250014.jpg',
-  },
-  {
-    id: '178319',
-    type: 'drink',
-    nationality: '',
-    category: 'Cocktail',
-    alcoholicOrNot: 'Alcoholic',
-    name: 'Aquamarine',
-    image: 'https://www.thecocktaildb.com/images/media/drink/zvsre31572902738.jpg',
-  },
-];
-
 export default function BodyFavoriteRecipes() {
-  const [favorites, setFavorites] = useState<IRecipe[]>(favoriteRecipes);
+  const [favorites, setFavorites] = useState<IRecipe[]>([]);
   const [currentFilter, setCurrentFilter] = useState<'meal' | 'drink' | 'all'>('all');
   const [linkCopied, setLinkCopied] = useState(false);
-  console.log(currentFilter);
 
   useEffect(() => {
     const storedFavorites = localStorage.getItem('favoriteRecipes');
@@ -69,8 +46,9 @@ export default function BodyFavoriteRecipes() {
   // Função para manipular o clique no botão de filtro
   const handleFilterButtonClick = (filter: 'meal' | 'drink' | 'all'): void => {
     setCurrentFilter(filter);
-    const filteredRecipes = filterRecipes(favoriteRecipes, filter);
-    setFavorites(filteredRecipes);
+    // Tirei pq reseta o que foi carregado do local storage
+    // const filteredRecipes = filterRecipes(favorites, filter);
+    // setFavorites(filteredRecipes);
   };
   // Função para manipular o clique no botão de desfavoritar
   const handleUnfavoriteClick = (id: string): void => {
@@ -89,6 +67,10 @@ export default function BodyFavoriteRecipes() {
       });
     }
   };
+
+  // Filtrar favoritos com base no filtro atual
+  const filteredFavorites = filterRecipes(favorites, currentFilter);
+
   return (
     <div>
       <div className={ style.HeaderFavorite }>
@@ -126,33 +108,40 @@ export default function BodyFavoriteRecipes() {
           </button>
         </div>
       </div>
-      <div>
-        <div>
-          {favorites.map((recipe, index) => (
-            <div key={ recipe.id }>
-              <fieldset>
-                <Link to={ `/${recipe.type}s/${recipe.id}` }>
-                  <img
-                    className={ style.favoriteRecipeImage }
-                    src={ recipe.image }
-                    data-testid={ `${index}-horizontal-image` }
-                    alt={ recipe.name }
-                  />
-                </Link>
-                <fieldset>
-                  <Link to={ `/${recipe.type}s/${recipe.id}` }>
-                    <p data-testid={ `${index}-horizontal-name` }>
-                      {recipe.name }
-                    </p>
-                  </Link>
-                  <p data-testid={ `${index}-horizontal-top-text` }>
-                    { `${recipe.nationality} - ${recipe.category}` }
-                  </p>
-                  <p data-testid={ `${index}-horizontal-top-text` }>
-                    { recipe.alcoholicOrNot }
-                  </p>
-                </fieldset>
-                <button onClick={ () => shareRecipe(recipe.id, recipe.type) }>
+      <div className={ style.BodyFavoriteRecipes }>
+        {filteredFavorites.map((recipe, index) => (
+          <div key={ recipe.id } className={ style.CardFavoriteRecipes }>
+            <Link to={ `/${recipe.type}s/${recipe.id}` }>
+              <img
+                className={ style.favoriteRecipeImage }
+                src={ recipe.image }
+                data-testid={ `${index}-horizontal-image` }
+                alt={ recipe.name }
+              />
+            </Link>
+            <div className={ style.favoriteRecipeInfo }>
+
+              <Link
+                to={ `/${recipe.type}s/${recipe.id}` }
+                className={ style.favoriteRecipeName }
+              >
+                <span data-testid={ `${index}-horizontal-name` }>
+                  {recipe.name }
+                </span>
+              </Link>
+              <div className={ style.favoriteCategory }>
+                <p data-testid={ `${index}-horizontal-top-text` }>
+                  { `${recipe.nationality} - ${recipe.category}` }
+                </p>
+                <p data-testid={ `${index}-horizontal-top-text` }>
+                  { recipe.alcoholicOrNot }
+                </p>
+              </div>
+              <div className={ style.favoriteButtonGrup }>
+                <button
+                  className={ style.ButtonSocial }
+                  onClick={ () => shareRecipe(recipe.id, recipe.type) }
+                >
                   <img
                     src={ shareIcon }
                     alt="compartilhar"
@@ -161,17 +150,20 @@ export default function BodyFavoriteRecipes() {
                   {linkCopied
                     && <span className={ style.shareMessage }>Link copied!</span>}
                 </button>
-                <button onClick={ () => handleUnfavoriteClick(recipe.id) }>
+                <button
+                  className={ style.ButtonSocial }
+                  onClick={ () => handleUnfavoriteClick(recipe.id) }
+                >
                   <img
                     src={ blackHeartIcon }
                     alt="desfavoritar"
                     data-testid={ `${index}-horizontal-favorite-btn` }
                   />
                 </button>
-              </fieldset>
+              </div>
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
     </div>
   );

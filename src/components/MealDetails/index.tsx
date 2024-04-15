@@ -14,12 +14,13 @@ function MealDetails({ detail, ingredients }
 
   return (
     <div>
-      <section
-        style={ {
-          backgroundImage: `url(${detail.strMealThumb})`,
-        } }
-        className={ style.Header }
-      >
+      <section className={ style.Header }>
+        <img
+          className={ style.Banner }
+          data-testid="recipe-photo"
+          src={ detail.strMealThumb }
+          alt={ detail.strMeal }
+        />
         <div className={ style.HeaderLine }>
           <span
             className={ style.CategoryName }
@@ -45,16 +46,6 @@ function MealDetails({ detail, ingredients }
         </h1>
       </section>
       <div className={ style.bodyDetails }>
-        {/* ImagenFake pq a imagem que ele quer, esta no bakground */}
-        <img
-          data-testid="recipe-photo"
-          height="1px"
-          src={ detail.strDrinkThumb }
-          style={ {
-            filter: 'brightness(0) invert(1)',
-          } }
-          alt="fake"
-        />
         <h1 className={ style.TitleBody }>Ingredients</h1>
         <ol className={ style.ListDetails }>
           {ingredients.map((ing, index) => {

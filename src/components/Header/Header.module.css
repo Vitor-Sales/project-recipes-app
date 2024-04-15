@@ -1,13 +1,20 @@
 .header {
   align-items: center;
-  background: black;
-  background-color: #fcdc36;
+  background-color: rgba(255, 205, 89, 0.313);
   border-bottom: 1px solid #e0e0e0;
   color: white;
   display: flex;
   justify-content: space-between;
-  padding: 15px 20px;
+  padding: 5px 20px;
+  position: absolute;
+  right: 0;
+  top: 0;
   width: 100%;
+}
+
+.LogoHeader {
+  height: 40px;
+  margin: 5px 0;
 }
 
 .profileIcon {

@@ -16,9 +16,4 @@ describe('Componente de Cabeçalho Header (com pesquisa) ', () => {
     const { getByTestId } = renderWithRouter(<Header />);
     expect(getByTestId(botaoPerfilId)).toBeInTheDocument();
   });
-
-  // it('Renderiza o botão de pesquisa quando showSearchIcon é verdadeiro', () => {
-  //   const { getByTestId } = renderWithRouter(<Header />);
-  //   expect(getByTestId(botaoPesquisaId)).toBeInTheDocument();
-  // });
 });
