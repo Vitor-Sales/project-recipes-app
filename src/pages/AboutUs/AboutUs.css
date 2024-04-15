@@ -23,7 +23,7 @@
 }
 
 .logoApp:hover {
-  transform: scale(1.1);
+  transform: scale(1.1) rotate(-3deg);
   transition: 0.3s;
 }
 
@@ -65,7 +65,6 @@
 
 .bodyInitial {
   align-items: center;
-  background-color: antiquewhite;
   display: flex;
   flex-direction: column;
   font-family: Epilogue , sans-serif;

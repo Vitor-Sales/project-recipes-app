@@ -65,7 +65,7 @@ export default function BodyProfile() {
         data-testid="About-btn"
       >
         <img src={ About } alt="About" />
-        <span>About us page</span>
+        <span>About Us</span>
       </button>
     </div>
   );

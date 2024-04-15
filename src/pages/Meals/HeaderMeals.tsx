@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import RecipeContext from '../../context/RecipeContext';
 import Search from '../../components/SearchBar';
 import styles from './HeaderMeals.module.css';
-import MealsIcon from '../../images/mealIcon2.svg';
+import MealsIcon from '../../images/Design02/cooking.svg';
 
 export default function HeaderMeals() {
   const { searchVisible } = useContext(RecipeContext);

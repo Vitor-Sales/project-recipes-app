@@ -1,13 +1,18 @@
 import React from 'react';
 import { screen } from '@testing-library/react';
-import App from '../App';
+import SearchBar from '../components/SearchBar';
 import renderWithRouter from './renderWithRouter';
 
-test('Farewell, front-end', () => {
-  it('Verifica se app redenriza na tela de login', () => {
-    renderWithRouter(<App />);
-    expect(screen.getByTestId('email-input')).toBeInTheDocument();
-    expect(screen.getByTestId('password-input')).toBeInTheDocument();
-    expect(screen.getByTestId('login-submit-btn')).toBeInTheDocument();
+describe('Testes do componete SearchBar', () => {
+  it('Verifica se app redenriza SearchBar', () => {
+    renderWithRouter(<SearchBar />);
+    const searchInput = screen.getByTestId('search-input');
+    const ingredientRadio = screen.getByTestId('ingredient-search-radio');
+    const nameRadio = screen.getByTestId('name-search-radio');
+    const firstLetterRadio = screen.getByTestId('first-letter-search-radio');
+    expect(searchInput).toBeInTheDocument();
+    expect(ingredientRadio).toBeInTheDocument();
+    expect(nameRadio).toBeInTheDocument();
+    expect(firstLetterRadio).toBeInTheDocument();
   });
 });

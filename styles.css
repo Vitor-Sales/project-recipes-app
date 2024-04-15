@@ -1,5 +1,5 @@
 html, body {
-  font-family: Epilogue , sans-serif;
+  font-family: Sriracha , cursive;
   margin: 0;
   padding: 0;
 }
@@ -13,6 +13,7 @@ button, input {
 }
 
 .boodyApp {
+  background-color: #f8f4e3;
   display: flex;
   flex-direction: column;
   height: 100%;

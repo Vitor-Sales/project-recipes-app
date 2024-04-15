@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import RecipeContext from '../../context/RecipeContext';
 import Search from '../../components/SearchBar';
 import styles from './HeaderDrinks.module.css';
-import drinkIcon from '../../images/drinkIcon2.svg';
+import drinkIcon from '../../images/Design02/waiter.svg';
 
 export default function HeaderDrinks() {
   const { searchVisible } = useContext(RecipeContext);

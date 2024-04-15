@@ -1,10 +1,8 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Validation from '../../assets/Validation';
-
 import styles from './Login.module.css';
-import LogoBig from '../../images/logoBig.svg';
-import tomates from '../../images/tomates.svg';
+import LogoBig from '../../images/Design02/LogoGrande.svg';
 
 export default function Login() {
   const navigate = useNavigate();
@@ -24,9 +22,9 @@ export default function Login() {
       <div className={ styles.LogoLogin }>
         <img src={ LogoBig } alt="Logo" />
       </div>
-      <div className={ styles.tomates }>
+      {/* <div className={ styles.tomates }>
         <img src={ tomates } alt="Logo" />
-      </div>
+      </div> */}
       <form onSubmit={ handleSubmit } className={ styles.login }>
         <span className={ styles.loginTitle }>LOGIN</span>
         <input

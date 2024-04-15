@@ -2,7 +2,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { useContext, useEffect, useState } from 'react';
 import RecipeContext from '../../context/RecipeContext';
 import styles from './Header.module.css';
-import LogoHeader from '../../images/LogoHeader.svg';
+import LogoHeader from '../../images/Design02/logoVertical.svg';
 import profileIcon from '../../images/profileIcon.svg';
 import searchIcon from '../../images/searchIcon.svg';
 
@@ -20,11 +20,13 @@ export default function HeaderLayout() {
 
   return (
     <div className={ styles.header }>
-      <img
-        src={ LogoHeader }
-        alt="Logo"
-        className={ styles.LogoHeader }
-      />
+      <a href="/meals">
+        <img
+          src={ LogoHeader }
+          alt="Logo"
+          className={ styles.LogoHeader }
+        />
+      </a>
       <div className={ styles.search }>
 
         {showSearc && (

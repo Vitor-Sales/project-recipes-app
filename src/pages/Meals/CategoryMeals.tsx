@@ -1,11 +1,11 @@
 import React from 'react';
 import style from './CategoryMeals.module.css';
-import allMeals from '../../images/MealsIcons/AllMeals.svg';
-import Beef from '../../images/MealsIcons/Beef.svg';
-import Breakfast from '../../images/MealsIcons/Breakfast.svg';
-import Chicken from '../../images/MealsIcons/Chicken.svg';
-import Dessert from '../../images/MealsIcons/Dessert.svg';
-import Goat from '../../images/MealsIcons/Goat.svg';
+import allMeals from '../../images/Design02/MealsIcons/AllMeals.svg';
+import Beef from '../../images/Design02/MealsIcons/Beef.svg';
+import Breakfast from '../../images/Design02/MealsIcons/Breakfast.svg';
+import Chicken from '../../images/Design02/MealsIcons/Chicken.svg';
+import Dessert from '../../images/Design02/MealsIcons/Dessert.svg';
+import Goat from '../../images/Design02/MealsIcons/Goat.svg';
 
 interface CategoryMealsProps {
   onCategorySelect: (category: string) => void;

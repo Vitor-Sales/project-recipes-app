@@ -1,11 +1,11 @@
 import React from 'react';
 import style from './CategoryDrinks.module.css';
-import allDrinks from '../../images/DrinksIcons/AllDink.svg';
-import Cocktail from '../../images/DrinksIcons/Cocktail.svg';
-import Cocoa from '../../images/DrinksIcons/Cocoa.svg';
-import OrdinaryDrink from '../../images/DrinksIcons/OrdinaryDrink.svg';
-import Other from '../../images/DrinksIcons/Other.svg';
-import Shake from '../../images/DrinksIcons/Shake.svg';
+import allDrinks from '../../images/Design02/DrinksIcons/AllDrink.svg';
+import Cocktail from '../../images/Design02/DrinksIcons/Cocktail.svg';
+import Cocoa from '../../images/Design02/DrinksIcons/Cocoa.svg';
+import OrdinaryDrink from '../../images/Design02/DrinksIcons/OrdinaryDrink.svg';
+import Other from '../../images/Design02/DrinksIcons/Other.svg';
+import Shake from '../../images/Design02/DrinksIcons/Shake.svg';
 
 interface CategoryDrinksProps {
   onCategorySelect: (category: string) => void;

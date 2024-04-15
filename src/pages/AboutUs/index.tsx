@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './AboutUs.css';
-import logoApp from '../../images/Design02/LogoApp.png';
+import logoApp from '../../images/Design02/LogoApp.svg';
 import logoTrybe from '../../images/logoTrybe.svg';
 import linkedinTile from '../../images/linkedinTile.svg';
 
