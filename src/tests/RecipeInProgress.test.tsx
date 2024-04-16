@@ -75,8 +75,6 @@ describe('Testando Recipe in Progress', () => {
     await checkboxes[2].click();
     expect(finishRecipeBtn).not.toBeDisabled();
     await finishRecipeBtn.click();
-    // const doneRecipe = '[{"id":"52771","nationality":"Italian","name":"Spicy Arrabiata Penne","category":"Vegetarian","image":"https://www.themealdb.com/images/media/meals/ustsqw1468250014.jpg","alcoholicOrNot":"","type":"meal"}]';
-    // expect(window.localStorage.getItem('doneRecipes')).toBe(doneRecipe);
     expect(window.location.pathname).toBe('/done-recipes');
   });
 });
