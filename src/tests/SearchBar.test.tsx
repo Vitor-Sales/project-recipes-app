@@ -10,15 +10,17 @@ const renderWithRouter = () => {
   );
 };
 describe('Testes do componete SearchBar', () => {
+  const searchInputId = 'search-input';
+  const searchButtonId = 'exec-search-btn';
   test('Verifica se o componente é renderizado', async () => {
     renderWithRouter();
-    const searchInput = screen.getByTestId('search-input');
+    const searchInput = screen.getByTestId(searchInputId);
     expect(searchInput).toBeInTheDocument();
   });
   test('Verifica se ao digitar "Bistek" no input de texto, altera a rota para "/search/Bistek/53069"', () => {
     renderWithRouter();
-    const searchInput = screen.getByTestId('search-input');
-    const searchButton = screen.getByTestId('exec-search-btn');
+    const searchInput = screen.getByTestId(searchInputId);
+    const searchButton = screen.getByTestId(searchButtonId);
     fireEvent.change(searchInput, { target: { value: 'Bistek' } });
     fireEvent.click(searchButton);
     // Aguarda 2 segundos antes de verificar a rota
@@ -28,17 +30,17 @@ describe('Testes do componete SearchBar', () => {
   });
   test('Verifica se ao clicar no botão de busca, o input de texto permanece com o texto buscado', () => {
     renderWithRouter();
-    const searchInput = screen.getByTestId('search-input');
-    const searchButton = screen.getByTestId('exec-search-btn');
+    const searchInput = screen.getByTestId(searchInputId);
+    const searchButton = screen.getByTestId(searchButtonId);
     fireEvent.change(searchInput, { target: { value: 'teste' } });
     searchButton.click();
     expect(searchInput).toHaveValue('teste');
   });
   test('Verifica se um alerta é exibido ao tentar pesquisar por primeira letra com mais de um caractere', () => {
     renderWithRouter();
-    const searchInput = screen.getByTestId('search-input');
+    const searchInput = screen.getByTestId(searchInputId);
     const firstLetterRadio = screen.getByTestId('first-letter-search-radio');
-    const searchButton = screen.getByTestId('exec-search-btn');
+    const searchButton = screen.getByTestId(searchButtonId);
     fireEvent.change(searchInput, { target: { value: 'AB' } });
     fireEvent.click(firstLetterRadio);
     fireEvent.click(searchButton);
