@@ -13,7 +13,7 @@
   </div>
 <br/><br/></br>
  
-  <h1 align="center">Nome do Projeto</h1>
+  <h1 align="center">App de Receitas</h1>
 
    <div align="center">
      Pequena descrição do projeto, recursos e finalidade.
