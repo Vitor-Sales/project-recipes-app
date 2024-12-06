@@ -147,4 +147,3 @@ Contriguições, issues, e novos recursos são vem vindos!
     </tr>
   </tbody>
 </table>
-‎page_blank.md
