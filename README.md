@@ -59,7 +59,7 @@ Este é o projeto Final do Módulo de Frontend da Formação Intensiva Full Stac
   <tbody>
     <tr>
       <td style="padding: 10px; border: 1px solid #ddd;">
-        <img src="https://github.com/account" width="60" style="border-radius: 50%; display: block; margin: 0 auto;">
+        <img src="https://avatars.githubusercontent.com/u/Vitor-Sales?v=4" width="60" style="border-radius: 50%; display: block; margin: 0 auto;">
       </td>
       <td style="padding: 10px; border: 1px solid #ddd;">Vitor Sales</td>
       <td style="padding: 10px; border: 1px solid #ddd;">
