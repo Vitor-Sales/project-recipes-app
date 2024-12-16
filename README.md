@@ -50,6 +50,10 @@ Este é o projeto Final do Módulo de Frontend da Formação Intensiva Full Stac
 ## <a name="features">🔋 Recursos</a>
 
 - **Responsivo**: Adaptação perfeita a celulares, tablets, laptops e desktops.
+- **Focado no Usuário**: Design para fácil entendimento e navegação do usuário.
+- **Filtrar**: Filtragem das receitas: por termo, item, ou alergias.
+- **Favoritar**: Salve suas receitas favoritas para rever com facilidade.
+- **Compartilhar**: Divida com seus amigos as suas receitas favoritas.
 
 
 ## <a name="authors">👥 Autores</a>
